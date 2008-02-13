@@ -71,7 +71,10 @@ directly used with `:menu` commands. ||
 
 
 = Download =
-  * Requirements:
-    * Vim 7.+
+  * Requirements: Vim 7.+
   * As a vimball...
   * Checkout from the SVN repository
+    {{{  
+# Non-members may check out a read-only working copy anonymously over HTTP.
+svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-only
+    }}}
