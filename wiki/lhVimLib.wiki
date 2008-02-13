@@ -1,0 +1,79 @@
+#summary vim-lib: Library of VimL functions
+#labels Featured
+
+= lh-vim-lib =
+
+== Introduction ==
+
+_lh-vim-lib_ is a library that defines some common VimL functions I use in my
+various plugins and ftplugins.
+
+This library has been conceived as a suite of |autoload| plugins, and a few
+|macros| plugins. As such, it requires Vim 7+.
+
+
+== Functions ==
+
+=== Miscellanous functions ===
+|| `lh#common#ErrorMsg()` || Displays an error message ||
+|| `lh#common#WarningMsg()` || Displays a warning ||
+|| `lh#common#CheckDeps()` || Checks a VimL symbol is loaded ||
+|| `lh#option#Get()` || Fetches the value of a user defined option ||
+|| `lh#list#Match()` || Searches the first element in a list that matches a pattern ||
+|| `lh#askvim#Exe()` || Returns what a VimL command echoes ||
+|| `lh#position#IsBefore()` || Tells if a position in a buffer is before another one||
+|| `lh#position#CharAtMark()` || Obtains the character under a mark ||
+|| `lh#position#CharAtPos()` || Obtains the character at a given position ||
+
+
+=== Paths related functions ===
+|| `lh#path#Simplify()` || Like `simplify()`, but also strip the leading `./` ||
+|| `lh#path#StripCommon()` || In a set of pathnames, strip the leading part they all have in common ||
+|| `lh#path#StripStart()` || Strips the leading part of a pathname if found in the given list of pathnames ||
+|| `lh#path#isAbsolutePath()` || Tells whether the parameter is an absolute pathname ||
+|| `lh#path#isURL()` || Tells whether the parameter is an URL ||
+|| `lh#path#SelectOne()` || Asks the end-user to select one pathname ||
+|| `lh#path#ToRelative()` || Transforms a pathname to a pathname relative to the current directory ||
+|| `lh#path#GlobAsList()` || Returns `globpath()`result as a list ||
+
+
+=== Commands related functions ===
+|| `lh#command#New()` || Experimental way to define commands that support auto-completion ||
+|| `lh#command#Fargs2String()` || Merges a set strings into a set of parameters (experimental) ||
+
+
+=== Menus related functions ===
+|| `lh#menu#DefToggleItem()` || This function defines a |menu| entry that will be associated to a |global-variable| whose values can be cycled and explored from the menu. This global variable can be seen as an enumerate whose value can be cyclically updated through a menu. ||
+|| `lh#menu#Text()` || Transforms a regular text into a text that can be
+directly used with `:menu` commands. ||
+|| `lh#menu#Make()` || Helper function to associate menus and mappings to actions in different modes ||
+|| `lh#menu#IVN_Make()` || Like `lh#menu#Make()`, but dedicated to text inserting actions and INSERT, NORMAL, and VISUAL modes ||
+|| `lh#menu#CMD_andclear_v()` || «» ||
+|| `lh#menu#Map_all()` || «» ||
+|| `lh#askvim#Menu()` || Experimental functions to ask vim which menus are defined ||
+
+
+=== Buffers related functions ===
+|| `lh#buffer#Find()` || Finds and jumps to the window that matches the buffer identifier, does nothing if not found ||
+|| `lh#buffer#Jump()` || Like `lh#buffer#Find()`, but opens the buffer in a new window if it no matching window was opened before ||
+|| `lh#buffer#Scratch()` || Opens a new scratch buffer ||
+|| `lh#buffer#dialog#toggle_help()` || (experimental) ||
+|| `lh#buffer#dialog#add_help()` || (experimental) ||
+|| `lh#buffer#dialog#new()` || (experimental) ||
+
+
+=== Syntax related functions ===
+|| `lh#syntax#NameAt()` || Tells the syntax kind of the character at the given position ||
+|| `lh#syntax#NameAtMark()` || Tells the syntax kind of the character at the given mark ||
+|| `lh#syntax#Skip()` `lh#syntax#SkipAt()` `lh#syntax#SkipAtMark()` || Helper functions to be used with `searchpair()` in order to ignore comments, doxygen comments, strings, and characters while searching ||
+|| `lh#syntax#SynListRaw()` || Returns the result of "`syn list {group-name}`" as a string ||
+|| `lh#syntax#SynList()` || Like `lh#syntax#SynListRaw()`, but reinterpret the results (experimental) ||
+
+
+
+
+= Download =
+  * Requirements:
+    * Vim 7.+
+  * As a vimball...
+  * Checkout from the SVN repository
