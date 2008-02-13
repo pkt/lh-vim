@@ -1,8 +1,6 @@
 #summary vim-lib: Library of VimL functions
 #labels Featured
 
-= lh-vim-lib =
-
 == Introduction ==
 
 _lh-vim-lib_ is a library that defines some common VimL functions I use in my
