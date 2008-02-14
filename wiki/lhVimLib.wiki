@@ -72,7 +72,7 @@ directly used with `:menu` commands. ||
 
 = Download =
   * Requirements: Vim 7.+
-  * As a vimball...
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib.vba lh-vim-lib.vba]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
