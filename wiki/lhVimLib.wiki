@@ -16,7 +16,8 @@ This library has been conceived as a suite of |autoload| plugins, and a few
 || `lh#common#ErrorMsg()` || Displays an error message ||
 || `lh#common#WarningMsg()` || Displays a warning ||
 || `lh#common#CheckDeps()` || Checks a VimL symbol is loaded ||
-|| `lh#option#Get()` || Fetches the value of a user defined option ||
+|| `lh#option#Get()` || Fetches the value of a user defined option, that may be _empty_ ||
+|| `lh#option#GetNonEmpty()` || Fetches the value of a user defined option, that is not _empty_ ||
 || `lh#list#Match()` || Searches the first element in a list that matches a pattern ||
 || `lh#askvim#Exe()` || Returns what a VimL command echoes ||
 || `lh#position#IsBefore()` || Tells if a position in a buffer is before another one||
