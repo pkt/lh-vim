@@ -88,7 +88,7 @@ function, or a plain text UI function (defined by vim, or emulated)
 In the same thematics, see also [http://www.vim.org/scripts/script.php?script_id=2160 VFT - Vim Form Toolkit]
 
 === Word Tools ===
-See [http://hermitte.free.fr/vim/idx-splitted.php]
+See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 
 
 = Download =
