@@ -93,7 +93,7 @@ See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 
 = Download =
   * Requirements: Vim 7.+
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.0.7.vba lh-vim-lib.vba]
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.0.7.vba here], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
