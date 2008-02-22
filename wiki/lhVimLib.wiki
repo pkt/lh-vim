@@ -9,6 +9,7 @@ various plugins and ftplugins.
 This library has been conceived as a suite of |autoload| plugins, and a few
 |macros| plugins. As such, it requires Vim 7+.
 
+The complete documentation can be browsed [http://code.google.com/p/lh-vim/source/browse/vim-lib/trunk/doc/lh-vim-lib.txt in the subversion repository]
 
 == Functions ==
 
@@ -53,6 +54,7 @@ This library has been conceived as a suite of |autoload| plugins, and a few
 || `lh#menu#Map_all()` || «» ||
 || `lh#askvim#Menu()` || Experimental functions to ask vim which menus are defined ||
 
+See also the documentation of the old functions at [http://hermitte.free.fr/vim/general.php#expl_menu_map]
 
 === Buffers related functions ===
 || `lh#buffer#Find()` || Finds and jumps to the window that matches the buffer identifier, does nothing if not found ||
