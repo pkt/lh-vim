@@ -1,0 +1,36 @@
+#summary mu-template: template-files expander
+#labels Featured
+
+== Introduction ==
+
+µTemplate is a template-files loader for Vim. Once loaded, templates are interpreted and expanded according to a flexible syntax.
+
+== Features ==
+  * Templates can be expanded:
+    * automatically when opening a new buffer (can be deactivated),
+    * explicitly through menus or the command line,
+    * from the INSERT-mode in a snippet-like fashion ;
+  * All snippets are defined in their own template-files ;
+  * The template-files can be overriden ;
+  * Filetype specific snippets can be defined for the INSERT-mode (they can be inherited, e.g. C snippets can be used from C++, Java, _etc._);
+  * Computed VimL expressions can be inserted ;
+  * VimL instructions can be executed during the expansion ;
+  * Template-files can include other template-files in a function-like manner ;
+  * Fully integrated with my [lhBrackets placeholders-system] ;
+  * Supports reindentation (if desired) ; 
+  * Works well with vim folding ;
+  * I18n friendly
+
+== Download ==
+  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
+  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.0.1.vba here]
+  * Checkout from the SVN repository
+    {{{  
+# Non-members may check out a read-only working copy anonymously over HTTP.
+svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-read-only
+    }}}
+
+== Credits ==
+  * Gergely Kontra is the author of the first version of µTemplate
+  * Luc Hermitte (LH) is the current maintainer of this enhanced version of mu-template
+  * Robert Kelly IV, Zdenek Sekera for their insight and the feedback they provided me (LH).
