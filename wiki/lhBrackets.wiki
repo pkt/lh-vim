@@ -1,7 +1,7 @@
 #summary map-tools: LH' bracketing system
 #labels Featured
 
-== Introduction ==
+== Features ==
 
 map-tools provides various commands and functions to help design smart and advanced mappings dedicated to text insertion.
 
@@ -10,11 +10,69 @@ It is made of three sub-systems:
   * [lhBrackets#The_bracketing_subsystem the core bracketing-system],
   * [lhBrackets#The_VimL_library various VimL functions to support ftplugin definitions].
 
-== The placeholder subsystem ==
+=== The placeholder subsystem ===
 
-== The bracketing subsystem ==
+This subsystem provides functions and mappings to:
+  * mark places in the code where we could jump to later,
+   See the help about `!mark!`, `Marker_Text()`, and `<Plug>MarkersMark`
+  * jump forward and backward to those places.
+    See the help about `!jump!`, and `<Plug>MarkersJumpF`
+
+The marker/placeholder characters:
+  * default to the French quote characters («»),
+  * can be specified on a filetype basis,
+  * are converted to match the current encoding,
+  * can be shared with the ones from imaps.vim (`:h g:use_place_holders`).
+
+Jumping to the next/previous placeholder:
+  * is binded to `<M-ins>` or `<C-J>` by default (see `:h <Plug>MarkersJumpF`),
+  * can be tuned to delete or select the placeholder the cursor is jumping to (`:h g:marker_prefers_select`, `:h g:marker_select_empty_marks`),
+  * can select or ignore the placeholder where the cursor is currently within (if any) (`:h g:marker_select_current`, `:h g:marker_select_current_fwd`)
+  * may move the line of the placeholder (we jump to) to the middle of the window (`:h g:marker_center`)
+  * respects `'wrapscan'`,
+  * opens the folder where the placeholder, we jump to, is.
+
+
+=== The bracketing subsystem ===
+
+This subsystem provides a command that helps define INSERT-, NORMAL-, and SELECT-mode mappings to insert any pairs of brackets-like characters.
+
+  * The INSERT-mode mapping will 
+    * insert the pair of brackets-like characters when the opening one is triggered, add a placeholder after the closing character, and move the cursor between the two characters;
+    * insert the closing character when pressed, or move after it if it is the next character after the cursor ;
+  * The VISUAL-mode mapping will surround the current selection with the pair of bracket-like characters ;
+  * The NORMAL-mode mapping will select the current word (or the current line depending on the use of the newline (`-nl`) option), and then surround this selection with the pair of bracket-like characters.
+
+It is possible to:
+  * tune what is exactly inserted in INSERT-mode (thanks to the `-open` and `-close` options),
+  * not insert the placeholder (depending on `b:usemark` value),
+  * specify which keys sequence actually triggers the mappings defined (thanks to the `-trigger` option),
+  * define the mappings only some modes (thanks to the options `-insert`, `-visual`, and also `-normal`)
+  * make the mappings line-wise (thanks to the `-nl` option),
+  * tune how the NORMAL-mode mapping select a current _anything_ (thanks to the `-normal` option),
+  * toggle to definition of all the brackets mappings by pressing <F9> (`:h <Plug>ToggleBrackets`).
+
+Here is an excerpt from the C&C++ brackets definitions, see the documentation for more help.
+{{{
+let b:usemarks         = 1
+let b:cb_jump_on_close = 1
+ 
+:Brackets { } -visual=0 -nl
+:Brackets { } -visual=0 -trigger=#{ 
+:Brackets { } -visual=1 -insert=0 -nl -trigger=<localleader>{
+:Brackets { } -visual=1 -insert=0
+
+:Brackets ( )
+:Brackets [ ] -visual=0
+:Brackets [ ] -insert=0 -trigger=<localleader>[
+:Brackets " " -visual=0 -insert=1 -escapable
+:Brackets " " -visual=1 -insert=0 -trigger=""
+:Brackets ' ' -visual=0 -insert=1
+:Brackets ' ' -visual=1 -insert=0 -trigger=''
+:Brackets < > -open=function('lh#cpp#brackets#lt') -visual=0
+}}}
   
-== The VimL library ==
+=== The VimL library ===
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib]
@@ -28,5 +86,5 @@ svn checkout http://lh-vim.googlecode.com/svn/map-tools/branches/1.0.0 map-tools
     }}}
 
 == Credits ==
-  * This bracketing system is actually a variation on Stephen Riehm's original bracketing system
+  * This bracketing system is actually a variation on [http://mywebpage.netscape.com/bbenjif/vim/Riehm/doc/ Stephen Riehm's original bracketing system]
   * Using SELECT-mode when reaching a placeholder was a suggestion from Gergely Kontra
