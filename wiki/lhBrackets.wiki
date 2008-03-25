@@ -37,7 +37,7 @@ Jumping to the next/previous placeholder:
 
 This subsystem provides a command that helps define INSERT-, NORMAL-, and SELECT-mode mappings to insert any pairs of brackets-like characters.
 
-  * The INSERT-mode mapping will 
+  * The INSERT-mode mappings will 
     * insert the pair of brackets-like characters when the opening one is triggered, add a placeholder after the closing character, and move the cursor between the two characters;
     * insert the closing character when pressed, or move after it if it is the next character after the cursor ;
   * The VISUAL-mode mapping will surround the current selection with the pair of bracket-like characters ;
@@ -47,7 +47,7 @@ It is possible to:
   * tune what is exactly inserted in INSERT-mode (thanks to the `-open` and `-close` options),
   * not insert the placeholder (depending on `b:usemark` value),
   * specify which keys sequence actually triggers the mappings defined (thanks to the `-trigger` option),
-  * define the mappings only some modes (thanks to the options `-insert`, `-visual`, and also `-normal`)
+  * define the mappings only in some modes (thanks to the options `-insert`, `-visual`, and also `-normal`)
   * make the mappings line-wise (thanks to the `-nl` option),
   * tune how the NORMAL-mode mapping select a current _anything_ (thanks to the `-normal` option),
   * toggle to definition of all the brackets mappings by pressing <F9> (`:h <Plug>ToggleBrackets`).
