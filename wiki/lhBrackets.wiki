@@ -50,7 +50,7 @@ It is possible to:
   * define the mappings only in some modes (thanks to the options `-insert`, `-visual`, and also `-normal`)
   * make the mappings line-wise (thanks to the `-nl` option),
   * tune how the NORMAL-mode mapping select a current _anything_ (thanks to the `-normal` option),
-  * toggle to definition of all the brackets mappings by pressing <F9> (`:h <Plug>ToggleBrackets`).
+  * toggle the definitions of all the brackets mappings by pressing <F9> (`:h <Plug>ToggleBrackets`).
 
 Here is an excerpt from the C&C++ brackets definitions, see the documentation for more help.
 {{{
