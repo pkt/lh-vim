@@ -101,3 +101,6 @@ See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-only
     }}}
+
+= Other Vim libraries =
+  * [http://www.vim.org/scripts/script.php?script_id=197 genutils]
