@@ -24,7 +24,7 @@
 
 == Examples == 
 
-A good few examples are better than a long speech.
+A few examples are better than a long speech, check the [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/doc/mu-template.txt documentation] for more precisions.
 
 Note: all the default template-files shipped with mu-template can be browsed from the [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/after/template/ subversion repository]
 
@@ -50,7 +50,7 @@ VimL: let s:marker_close = '+>'
 VimL: let s:clsname = inputdialog("class name ?")
 VimL: call CppDox_ClassWizard(s:clsname)
 VimL:" CppDox_ClassWizard() asks what semantics the class will have 
-VimL:" (value, entity, clonable, ...), and fills in all the g:CppDox_xxx variable
+VimL:" (value, entity, clonable, ...), and fills in all the g:CppDox_xxx variables
 VimL:" used in this template-file.
 VimL:"
 /**
@@ -153,4 +153,4 @@ svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-rea
   * Robert Kelly IV, Zdenek Sekera for their insight and the feedback they provided me (LH).
 
 == See also ==
-There are many other other template-files loader for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia]
+There are many other template-files loaders for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia]
