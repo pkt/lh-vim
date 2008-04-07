@@ -6,20 +6,137 @@
 µTemplate is a template-files loader for Vim. Once loaded, templates are interpreted and expanded according to a flexible syntax.
 
 == Features ==
-  * Templates can be expanded:
-    * automatically when opening a new buffer (can be deactivated),
+  * Template-files can be expanded:
+    * automatically when opening a new buffer (unless deactivated from the .vimrc),
     * explicitly through menus or the command line,
     * from the INSERT-mode in a snippet-like fashion ;
-  * All snippets are defined in their own template-files ;
-  * The template-files can be overriden ;
+  * All snippets are defined in their own template-file ;
+  * The template-files can be overridden by the user, or in the context of a specific project ;
   * Filetype specific snippets can be defined for the INSERT-mode (they can be inherited, e.g. C snippets can be used from C++, Java, _etc._);
   * Computed VimL expressions can be inserted ;
   * VimL instructions can be executed during the expansion ;
   * Template-files can include other template-files in a function-like manner ;
   * Fully integrated with my [lhBrackets placeholders-system] ;
-  * Supports reindentation (if desired) ; 
+  * Supports re-indentation (if desired) ; 
   * Works well with vim folding ;
   * I18n friendly
+
+
+== Examples == 
+
+A good few examples are better than a long speech.
+
+Note: all the default template-files shipped with mu-template can be browsed from the [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/after/template/ subversion repository]
+
+=== C-`for` snippet ===
+{{{
+VimL: let s:value_start  = '¡'
+VimL: let s:value_end    = '¡'
+VimL: let s:reindent     = 1 
+VimL: let s:marker_open  = '<+'
+VimL: let s:marker_close = '+>'
+for¡C_nl_before_bracket()¡(<+init+>;<+cond+>;<+iteration+>)¡C_nl_before_curlyB()¡{
+    <+code+>
+}<++>
+}}}
+
+=== Interactive template-file: C++ Class Template ===
+{{{
+VimL: let s:value_start = '¡'
+VimL: let s:value_end   = '¡'
+VimL: let s:reindent = 1
+VimL: let s:marker_open  = '<+'
+VimL: let s:marker_close = '+>'
+VimL: let s:clsname = inputdialog("class name ?")
+VimL: call CppDox_ClassWizard(s:clsname)
+VimL:" CppDox_ClassWizard() asks what semantics the class will have 
+VimL:" (value, entity, clonable, ...), and fills in all the g:CppDox_xxx variable
+VimL:" used in this template-file.
+VimL:"
+/**
+ * @brief <+brief+>
+ *
+ * <+doc+>
+ *
+ * <+@invariants+>
+ *
+ * <p><b>Semantics</b><br>
+ ¡g:CppDox_semantics¡
+ * <+ <li> sem+>
+ *
+ * @version ¡'$'¡revision$
+ * ¡CppDox_author()¡
+ */
+class ¡s:clsname¡
+¡g:CppDox_inherits¡
+{
+public:
+    /**@name Construction/destruction
+     */
+    //@{
+    ¡g:CppDox_constructors¡
+
+    /**
+     * ¡g:CppDox_isVirtualDest¡ Destructor.
+     *
+     ¡IF(strlen(g:CppDox_isVirtualDest), '', '* @warning this class is not meant to be publicly inherited')¡
+     * @throw Nothing
+     */
+    ¡g:CppDox_isVirtualDest¡ ~¡s:clsname¡() ;
+    //@}
+
+    <+Other public functions+>;
+
+    ¡IF(strlen(g:CppDox_protected_members), "protected:\n", '')¡
+    ¡g:CppDox_protected_members¡
+
+private:
+    ¡g:CppDox_forbidden_members¡
+
+    <+Private functions+>;
+
+    <+Attributes+>;
+};<++>
+}}}
+
+=== Completely useless example ===
+ * test.template
+{{{
+VimL: let s:value_start  = '¡'
+VimL: let s:value_end    = '¡'
+VimL: let s:marker_open  = '<+'
+VimL: let s:marker_close = '+>'
+VimL: let s:var = 1
+BEGIN<++>
+/*
+ * ¡'$'¡Id$
+ */
+¡s:var¡
+a¡s:var¡
+¡s:var + 5¡a
+a¡s:var¡a¡s:var¡
+a¡s:var¡a¡s:var¡a
+here <+we go+>
+VimL: let s:msg =''
+VimL: call s:Include('test-included')
+VimL: let s:msg =' again'
+VimL: call s:Include('test-included')
+
+------
+Some tests:
+VimL: let s:expr = "first line\nsecond line\n "
+text ¡s:expr¡
+text
+END
+}}}
+ * test-included.template
+{{{
+VimL: let s:times = exists('s:times') ? (s:times+1) : 1
+This part has been included¡s:msg¡ ¡((s:times==1)?'once':(s:times==2 ? 'twice' : (s:times.' times')))¡.
+VimL: if s:times <= 4 | call s:Include('test-included') | endif 
+VimL: silent! unlet s:times
+}}}
+
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
@@ -34,3 +151,6 @@ svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-rea
   * Gergely Kontra is the author of the first version of µTemplate
   * Luc Hermitte (LH) is the current maintainer of this enhanced version of mu-template
   * Robert Kelly IV, Zdenek Sekera for their insight and the feedback they provided me (LH).
+
+== See also ==
+There are many other other template-files loader for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia]
