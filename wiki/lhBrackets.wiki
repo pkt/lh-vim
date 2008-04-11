@@ -74,6 +74,8 @@ let b:cb_jump_on_close = 1
 :Brackets < > -open=function('lh#cpp#brackets#lt') -visual=0
 }}}
 
+*Note:* This feature has been completely rewritten for the version 1.0.0 of lh-map-tools. The old way of tuning the brackets insertion is no longer available.
+
 ==== Brackets replacement ====
 
 lh-map-tools provides mappings (originally from auctex.vim) to replace a pair of bracket-characters by another pair of bracket-characters. See `:h brackets_manipulations` for more information.
