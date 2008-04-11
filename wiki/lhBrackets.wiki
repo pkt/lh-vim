@@ -74,15 +74,15 @@ let b:cb_jump_on_close = 1
 :Brackets < > -open=function('lh#cpp#brackets#lt') -visual=0
 }}}
 
-*Note:* This feature has been completely rewritten for the version 1.0.0 of lh-map-tools. The old way of tuning the brackets insertion is no longer available.
+*Note:* This feature has been completely rewritten for the version 1.0.0 of map-tools. The old way of tuning the brackets insertion is no longer available.
 
 ==== Brackets replacement ====
 
-lh-map-tools provides mappings (originally from auctex.vim) to replace a pair of bracket-characters by another pair of bracket-characters. See `:h brackets_manipulations` for more information.
+map-tools provides mappings (originally from auctex.vim) to replace a pair of bracket-characters by another pair of bracket-characters. See `:h brackets_manipulations` for more information.
   
 === The VimL library ===
 
-As [lhVimLib lh-vim-lib], lh-map-tools provides a few functions of its own. All these functions are specialized into the definition of smart abbreviations and INSERT-mode mappings.
+As [lhVimLib lh-vim-lib], map-tools provides a few functions of its own. All these functions are specialized into the definition of smart abbreviations and INSERT-mode mappings.
 
 || `MapNoContext()`, `MapNoContext2()` || Core functions to define mappings that only expand outside of _string_, _comment_, and _character_ contexts ||
 || `Map4TheseContext()` || Like `MapNoContext()`, except this time we can specify which text must be returned depending on the current context ||
@@ -105,5 +105,12 @@ svn checkout http://lh-vim.googlecode.com/svn/map-tools/branches/1.0.0 map-tools
     }}}
 
 == Credits ==
-  * This bracketing system is actually a variation on [http://mywebpage.netscape.com/bbenjif/vim/Riehm/doc/ Stephen Riehm's original bracketing system]
-  * Using SELECT-mode when reaching a placeholder was a suggestion from Gergely Kontra
+  * This bracketing system is actually a variation on [http://mywebpage.netscape.com/bbenjif/vim/Riehm/doc/ Stephen Riehm's original bracketing system] ;
+  * The brackets manipulation comes from Saul Lubkin code, also present in [http://www.vim.org/scripts/script.php?script_id=162 auctex.vim] ;
+  * Using SELECT-mode when reaching a placeholder was a suggestion from Gergely Kontra.
+
+== See also ==
+  * [http://www.vim.org/scripts/script.php?script_id=475 imaps.vim, from LaTeX-suite], with which map-tools is compatible (there is no conflictual mappings if both are installed) ;
+  * All the [http://vim.wikia.com/wiki/Category:Brackets brackets related tips on vim.wikia] ;
+  * Most of my ftplugins for examples of use ;
+  * [muTemplate], a template-files expander built on top of map-tools.
