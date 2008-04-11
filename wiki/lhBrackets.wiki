@@ -35,6 +35,8 @@ Jumping to the next/previous placeholder:
 
 === The bracketing subsystem ===
 
+==== Brackets insertion ====
+
 This subsystem provides a command that helps define INSERT-, NORMAL-, and SELECT-mode mappings to insert any pairs of brackets-like characters.
 
   * The INSERT-mode mappings will 
@@ -71,8 +73,23 @@ let b:cb_jump_on_close = 1
 :Brackets ' ' -visual=1 -insert=0 -trigger=''
 :Brackets < > -open=function('lh#cpp#brackets#lt') -visual=0
 }}}
+
+==== Brackets replacement ====
+
+lh-map-tools provides mappings (originally from auctex.vim) to replace a pair of bracket-characters by another pair of bracket-characters. See `:h brackets_manipulations` for more information.
   
 === The VimL library ===
+
+As [lhVimLib lh-vim-lib], lh-map-tools provides a few functions of its own. All these functions are specialized into the definition of smart abbreviations and INSERT-mode mappings.
+
+|| `MapNoContext()`, `MapNoContext2()` || Core functions to define mappings that only expand outside of _string_, _comment_, and _character_ contexts ||
+|| `Map4TheseContext()` || Like `MapNoContext()`, except this time we can specify which text must be returned depending on the current context ||
+|| `InsertAroundVisual()` || This is the core surrounding function ; the surrounding text is not interpreted ||
+|| `Surround()` || Interprets the `!.*!` mappings that are passed to `InsertAroundVisual()` (`!cursorhere!` tells were to put the cursor). This function also recognises when the selected area is actually a marker/placeholder in order to not surround, but expand instead. ||
+|| `BuildMapSeq()` || Core function that interprets `!.*!` mappings ||
+|| `EatChar()`, `:I(nore)abbr` || Permits to define abbreviations that do not insert a whitespace when the `<space>` key is used to trigger the abbreviation ||
+|| `InsertSeq()` || High level function that interprets `!.*!` mappings, and take the context into account ||
+
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib]
