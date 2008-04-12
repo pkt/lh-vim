@@ -1,0 +1,121 @@
+#summary lh-cpp: LH' C&C++ ftplugins suite
+#labels Featured
+
+= Features =
+
+lh-cpp is an heterogeneous suite of helpers for C and C++ programming.
+
+It provides the following things:
+  * ...
+  * 
+  * 
+
+== Text insertion facilities ==
+
+
+=== Brackets ===
+
+The insertion of pair of brackets-like characters is eased thanks to [lhBrackets map-tool].
+|| *In mode*            || *INSERT*               || *VISUAL*                || *NORMAL* ||
+|| *keys*               || Expands into ..        || Surrounds the selection with ... ^2^ || Surrounds the current ... ||
+|| (                    || `(`_<cursor>_`)«»`     || `(`_<selection>_`)`       || word ||
+|| [                    || `[`_<cursor>_`]«»`     || ^1^                       || ^1^  ||
+|| _<localleader>_[     ||                        || `[`_<selection>_`]`       || word ||
+|| {                    || `{`\n_<cursor>_\n`}«»` || `{`_<selection>_`}`       || word ||
+|| #{                   || `{`_<cursor>_`}«»`     ||                           ||      ||
+|| _<localleader>_{     ||                        || `{\n`_<selection>_`\n}«»` || line ||
+|| < || `<`_<cursor>_`>«»` after `#include`, or `template` on the same line || || ||
+|| " (1 double quote)   || `"`_<cursor>_`"«»`     || ^1^                       || ^1^  ||
+|| ""                   ||                        || `"`_<selection>_`"`       || word ||
+|| '                    || `'`_<cursor>_`'«»`     || ^1^                       || ^1^  ||
+|| '' (2 single quotes) ||                        || `'`_<selection>_`'`       || word ||
+
+====Notes:====
+ * ^1^ Not defined to avoid hijacking default vim key bindings.
+ * ^2^ The visual mode mappings do not surround the current marker/placeholder selected, but trigger the INSERT-mode mappings instead.
+ * `«»` represents a marker/placeholder, it may be expanded with other characters like `<++>` depending on your preferences.
+ * There is no way (yet) to deactivate this feature from the `.vimrc`
+
+
+
+=== Code snippets ===
+
+==== INSERT-mode snippets abbreviations ====
+There exist, over the WWW, a lot of configurations and mappings regarding C programming. Once again you will find shortcuts for `if`, `else`, `elif`  (I know it is not a C keyword, but `else if` are), `for`, `while`, `do`, `switch`, and `main`. In C++, snippets are also provided for `try`, `catch`, and `namespace`.
+What is unique is the fact that when you type `if` in insert mode, it will automatically expand into ...
+{{{
+if () {
+} 
+}}}
+... in respect of the context. I.e.: within comments or strings (delimited by single or double quotes) `if` is not expanded. If keyword characters precede the typing, `if` is not expanded as well. Thus variables like `tarif` can be used without getting any headache.
+
+
+Most of these same snippets, and a few variations, are also provided as template-files for [muTemplate mu-template]. This time, you just need to type the first letters of the snippet/template name, and trigger the expansion (with `<c-r><tab>` by default). If several snippets match (like _c/for_, _c/fori_, _cpp/fori_ and _cpp/for-iterator_ when you try to expand `fo`), mu-template will ask you to choose which (matching) snippet you want to expand.
+
+==== Code surrounding mappings ====
+In visual mode, `,if` wraps the selection within the curly brackets and inserts `if ()` just before. In normal mode `,if` does the same thing under the consideration that the selection is considered to be the current line under the cursor. Actually, it is not `,if` but `<LocalLeader>if,` with `maplocalleader` assigned by default to the coma `,`.
+
+==== Condition surrounding mappings ====
+In the same idea, `<LocalLeader><LocalLeader>if` surrounds the selection with `if (` and `) {\n«»\n}«»`.
+
+==== Other notes ====
+All the three mode oriented mappings respect and force the indentation regarding the current setting and what was typed.
+
+More precisely, regarding the value of the buffer relative option b:usemarks (_cf._ [lhBrackets map-tools]), if could be expanded into:
+{{{
+if () {
+    «»
+}«»
+}}}
+
+=== Miscellaneous shortcuts ===
+ * <m-t>, <m-r>
+ * <c-x>be, <c-x>rbe, <c->se
+ * ,sc | ,dc | ,rc | ,cc | ,,sc | ,,dc | ,,rc | ,,cc
+ * #d, #i, #e, #0
+ * pub, pro, pri, vir, firend
+ * <m-s>, <m-b>
+ * ?:
+
+=== Templates ===
+ * stream inserters, stream extractor
+ * bool operator
+
+=== Wizards and other high-level features ===
+ * class
+ * singleton
+ * :DOX
+ * :GOTOIMPL, :MOVETOIMPL
+ * :ADDATTRIBUTE
+ * :CppDisplayUnmatchedFunctions, <c-x>u
+
+== Syntax highlighting ==
+ * assign in condition
+ * catch by value
+ * throw specifications
+ * function definitions
+
+== Miscellaneous ==
+ * home like VC++
+ * omap-param
+ * a.vim, 
+ * SiR, local_vimrc 
+
+== API ==
+
+= Download =
+  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhBrackets lh-map-tools], [muTemplate mu-template]
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-cpp-1.0.0.vba here] (not ready yet), or at [http://www.vim.org/scripts/script.php?script_id=336 Vim.org] (old version)
+  * Checkout from the SVN repository
+    {{{  
+# Non-members may check out a read-only working copy anonymously over HTTP.
+svn checkout http://lh-vim.googlecode.com/svn/cpp/trunk/ lh-cpp-read-only
+    }}}
+
+= Credits =
+
+= See also =
+ * vim.wikia category C++
+ * c.vim
+ * refactor.vim
+ * omnicppcomplete
