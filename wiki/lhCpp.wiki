@@ -1,4 +1,4 @@
-#summary lh-cpp: LH' C&C++ ftplugins suite
+#summary lh-cpp: LH's C&C++ ftplugins suite
 #labels Featured
 
 = Features =
@@ -6,9 +6,11 @@
 lh-cpp is an heterogeneous suite of helpers for C and C++ programming.
 
 It provides the following things:
-  * ...
-  * 
-  * 
+  * Smart snippets for [lhCpp#Brackets brackets pairs], [lhCpp#Code snippets control statements]
+  * a few advanced wizards
+  * advanced features to Generate ready to fill-in function comments for Doxygen, Jump to a function implementation, Search for un-implemnted or undeclared functions, _etc._
+  * [lhCpp#Syntax_Highlighting syntax highlighting] for identified counter-idioms and bad practices (catch by value, assignments in conditions, throw specifications)
+  * an [lhCpp#API API] to build even more complex wizards and advanced features
 
 == Text insertion facilities ==
 
@@ -52,16 +54,16 @@ if () {
 
 Most of these same snippets, and a few variations, are also provided as template-files for [muTemplate mu-template]. This time, you just need to type the first letters of the snippet/template name, and trigger the expansion (with `<c-r><tab>` by default). If several snippets match (like _c/for_, _c/fori_, _cpp/fori_ and _cpp/for-iterator_ when you try to expand `fo`), mu-template will ask you to choose which (matching) snippet you want to expand.
 
-==== Code surrounding mappings ====
+==== Instruction surrounding mappings ====
 In visual mode, `,if` wraps the selection within the curly brackets and inserts `if ()` just before. In normal mode `,if` does the same thing under the consideration that the selection is considered to be the current line under the cursor. Actually, it is not `,if` but `<LocalLeader>if,` with `maplocalleader` assigned by default to the coma `,`.
 
-==== Condition surrounding mappings ====
+==== Expression-condition surrounding mappings ====
 In the same idea, `<LocalLeader><LocalLeader>if` surrounds the selection with `if (` and `) {\n«»\n}«»`.
 
 ==== Other notes ====
 All the three mode oriented mappings respect and force the indentation regarding the current setting and what was typed.
 
-More precisely, regarding the value of the buffer relative option b:usemarks (_cf._ [lhBrackets map-tools]), if could be expanded into:
+More precisely, regarding the value of the buffer relative option b:usemarks (_cf._ [lhBrackets map-tools]), `if` could be expanded into:
 {{{
 if () {
     «»
@@ -69,13 +71,17 @@ if () {
 }}}
 
 === Miscellaneous shortcuts ===
- * <m-t>, <m-r>
- * <c-x>be, <c-x>rbe, <c->se
- * ,sc | ,dc | ,rc | ,cc | ,,sc | ,,dc | ,,rc | ,,cc
- * #d, #i, #e, #0
- * pub, pro, pri, vir, firend
- * <m-s>, <m-b>
- * ?:
+ * `tpl` expands into `template <`_<cursor>_`>«»` ;
+ * `<m-t>` inserts `typedef`, or `typename` depending on what is before the cursor ;
+ * `<m-r>` inserts `return`, and tries to correctly place the semicolon, and a placeholder, depending on what follows the cursor ;
+ * `<c-x>be`, `<c-x>rbe`, `<c->se`
+ * `,sc` | `,dc` | `,rc` | `,cc` | `,,sc` | `,,dc` | `,,rc` | `,,cc`
+ * `#d`, `#i`, `#e`, `#0`, `,0`
+ * `pub` expands into `public:\n`, `pro` expands into `protected:\n`, `pri` expands into `private:\n` ;
+ * `vir` expands into `virtual` ;
+ * `firend` is replaced by `friend` ;
+ * `<m-s>` inserts `std::`, `<m-b>` inserts `boost:` ;
+ * `?:` expands into _<cursor>_`? «» : «»;` ;
 
 === Templates ===
  * stream inserters, stream extractor
@@ -84,10 +90,10 @@ if () {
 === Wizards and other high-level features ===
  * class
  * singleton
- * :DOX
- * :GOTOIMPL, :MOVETOIMPL
- * :ADDATTRIBUTE
- * :CppDisplayUnmatchedFunctions, <c-x>u
+ * `[lhCpp_Doxygen :DOX]`
+ * `[lhCpp_GotoImplementation :GOTOIMPL]`, `:MOVETOIMPL`
+ * `[lhCpp_Accessors :ADDATTRIBUTE]`
+ * `:CppDisplayUnmatchedFunctions`, `<c-x>u`
 
 == Syntax highlighting ==
  * assign in condition
