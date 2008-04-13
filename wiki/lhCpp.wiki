@@ -6,10 +6,10 @@
 lh-cpp is an heterogeneous suite of helpers for C and C++ programming.
 
 It provides the following things:
-  * Smart snippets for [lhCpp#Brackets brackets pairs], [lhCpp#Code snippets control statements]
+  * Smart snippets for [lhCpp#Brackets brackets pairs], [lhCpp#Code_snippets control statements]
   * a few advanced wizards
   * advanced features to Generate ready to fill-in function comments for Doxygen, Jump to a function implementation, Search for un-implemnted or undeclared functions, _etc._
-  * [lhCpp#Syntax_Highlighting syntax highlighting] for identified counter-idioms and bad practices (catch by value, assignments in conditions, throw specifications)
+  * [lhCpp#Syntax_highlighting syntax highlighting] for identified counter-idioms and bad practices (catch by value, assignments in conditions, throw specifications)
   * an [lhCpp#API API] to build even more complex wizards and advanced features
 
 == Text insertion facilities ==
