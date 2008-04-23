@@ -19,14 +19,24 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 || `lh#common#CheckDeps()` || Checks a VimL symbol is loaded ||
 || `lh#option#Get()` || Fetches the value of a user defined option, that may be _empty_ ||
 || `lh#option#GetNonEmpty()` || Fetches the value of a user defined option, that is not _empty_ ||
-|| `lh#list#Match()` || Searches the first element in a list that matches a pattern ||
-|| `lh#list#Find_if()` || Searches the first element in a list that verifies a predicate ||
 || `lh#askvim#Exe()` || Returns what a VimL command echoes ||
 || `lh#position#IsBefore()` || Tells if a position in a buffer is before another one||
 || `lh#position#CharAtMark()` || Obtains the character under a mark ||
 || `lh#position#CharAtPos()` || Obtains the character at a given position ||
 || `lh#event#RegisterForOneExecutionAt()` || Registers a command to be executed once (and only once) when an event is triggered on the current file ||
 || `lh#encoding#Iconv()` || Unlike `iconv()`, this wrapper returns {expr} when we know no convertion can be acheived. ||
+
+
+== Lists related functions ==
+|| `lh#list#Match()` || Searches the first element in a list that matches a pattern ||
+|| `lh#list#Find_if()` || Searches the first element in a list that verifies a predicate ||
+|| `lh#list#unique_sort()` || Sorts the elements of a list, and makes sure they are all unique (trunk only for the
+moment) ||
+
+
+== Graphs related functions ==
+|| `lh#graph#tsort#depth()` || Implements a Topological Sort on a Direct Acyclic Graph, with a recursive depth-first search ||
+|| `lh#graph#tsort#breadth()` || Same as `depth()`, but with a non-recursive breadth-first search ||
 
 
 == Paths related functions ==
@@ -72,11 +82,6 @@ See also the documentation of the old functions at [http://hermitte.free.fr/vim/
 || `lh#syntax#Skip()` `lh#syntax#SkipAt()` `lh#syntax#SkipAtMark()` || Helper functions to be used with `searchpair()` in order to ignore comments, doxygen comments, strings, and characters while searching ||
 || `lh#syntax#SynListRaw()` || Returns the result of "`syn list {group-name}`" as a string ||
 || `lh#syntax#SynList()` || Like `lh#syntax#SynListRaw()`, but reinterprets the results (experimental) ||
-
-
-== Graph related functions ==
-|| `lh#graph#tsort#depth()` || Implements a Topological Sort on a Direct Acyclic Graph, with a recursive depth-first search ||
-|| `lh#graph#tsort#breadth()` || Same as `depth()`, but with a non-recursive breadth-first search ||
 
 
 == UI functions ==
