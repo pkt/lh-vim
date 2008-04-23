@@ -1,7 +1,7 @@
-#summary vim-lib: Library of VimL functions
+﻿#summary vim-lib: Library of VimL functions
 #labels Featured
 
-== Introduction ==
+= Introduction =
 
 _lh-vim-lib_ is a library that defines some common VimL functions I use in my
 various plugins and ftplugins.
@@ -11,9 +11,9 @@ This library has been conceived as a suite of |autoload| plugins, and a few
 
 The complete documentation can be browsed [http://code.google.com/p/lh-vim/source/browse/vim-lib/trunk/doc/lh-vim-lib.txt in the subversion repository]
 
-== Functions ==
+= Functions =
 
-=== Miscellanous functions ===
+== Miscellanous functions ==
 || `lh#common#ErrorMsg()` || Displays an error message ||
 || `lh#common#WarningMsg()` || Displays a warning ||
 || `lh#common#CheckDeps()` || Checks a VimL symbol is loaded ||
@@ -29,7 +29,7 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 || `lh#encoding#Iconv()` || Unlike `iconv()`, this wrapper returns {expr} when we know no convertion can be acheived. ||
 
 
-=== Paths related functions ===
+== Paths related functions ==
 || `lh#path#Simplify()` || Like `simplify()`, but also strips the leading `./` ||
 || `lh#path#StripCommon()` || In a set of pathnames, strips the leading part they all have in common ||
 || `lh#path#StripStart()` || Strips the leading part of a pathname if found in the given list of pathnames ||
@@ -40,23 +40,24 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 || `lh#path#GlobAsList()` || Returns `globpath()`result as a list ||
 
 
-=== Commands related functions ===
+== Commands related functions ==
 || `lh#command#New()` || Experimental way to define commands that support auto-completion ||
 || `lh#command#Fargs2String()` || Merges a set strings into a set of parameters (experimental) ||
 
 
-=== Menus related functions ===
+== Menus related functions ==
 || `lh#menu#DefToggleItem()` || This function defines a |menu| entry that will be associated to a |global-variable| whose values can be cycled and explored from the menu. This global variable can be seen as an enumerate whose value can be cyclically updated through a menu. ||
 || `lh#menu#Text()` || Transforms a regular text into a text that can be directly used with `:menu` commands. ||
 || `lh#menu#Make()` || Helper function to associate menus and mappings to actions in different modes ||
 || `lh#menu#IVN_Make()` || Like `lh#menu#Make()`, but dedicated to text inserting actions and INSERT, NORMAL, and VISUAL modes ||
-|| `lh#menu#CMD_andclear_v()` || «» ||
-|| `lh#menu#Map_all()` || «» ||
+|| `lh#menu#CMD_andclear_v()` || Â«Â» ||
+|| `lh#menu#Map_all()` || Â«Â» ||
 || `lh#askvim#Menu()` || Experimental functions to ask vim which menus are defined ||
 
 See also the documentation of the old functions at [http://hermitte.free.fr/vim/general.php#expl_menu_map]
 
-=== Buffers related functions ===
+
+== Buffers related functions ==
 || `lh#buffer#Find()` || Finds and jumps to the window that matches the buffer identifier, does nothing if not found ||
 || `lh#buffer#Jump()` || Like `lh#buffer#Find()`, but opens the buffer in a new window if it no matching window was opened before ||
 || `lh#buffer#Scratch()` || Opens a new scratch buffer ||
@@ -65,7 +66,7 @@ See also the documentation of the old functions at [http://hermitte.free.fr/vim/
 || `lh#buffer#dialog#new()` || (experimental) ||
 
 
-=== Syntax related functions ===
+== Syntax related functions ==
 || `lh#syntax#NameAt()` || Tells the syntax kind of the character at the given position ||
 || `lh#syntax#NameAtMark()` || Tells the syntax kind of the character at the given mark ||
 || `lh#syntax#Skip()` `lh#syntax#SkipAt()` `lh#syntax#SkipAtMark()` || Helper functions to be used with `searchpair()` in order to ignore comments, doxygen comments, strings, and characters while searching ||
@@ -73,14 +74,19 @@ See also the documentation of the old functions at [http://hermitte.free.fr/vim/
 || `lh#syntax#SynList()` || Like `lh#syntax#SynListRaw()`, but reinterprets the results (experimental) ||
 
 
-=== UI functions ===
+== Graph related functions ==
+|| `lh#graph#tsort#depth()` || Implements a Topological Sort on a Direct Acyclic Graph, with a recursive depth-first search ||
+|| `lh#graph#tsort#breadth()` || Same as `depth()`, but with a non-recursive breadth-first search ||
+
+
+== UI functions ==
 All the functions defined in ui-functions.vim are wrappers around Vim
 interactive functions. Depeding on a configuration variable
 (`[bg]:ui_type`), they will delegate the interaction to a gvim UI
 function, or a plain text UI function (defined by vim, or emulated)
 
 || `IF()`  || Acts as the ternary operator ||
-|| `SWITCH()` || «» ||
+|| `SWITCH()` || Â«Â» ||
 || `CONFIRM()` || Similar to `confirm()` ||
 || `INPUT()` || Calls `inputdialog()` or `input()` ||
 || `COMBO()` || Emulates a combobox UI function ||
@@ -89,13 +95,13 @@ function, or a plain text UI function (defined by vim, or emulated)
 
 In the same thematics, see also [http://www.vim.org/scripts/script.php?script_id=2160 VFT - Vim Form Toolkit]
 
-=== Word Tools ===
+== Word Tools ==
 See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 
 
 = Download =
-  * Requirements: Vim 7.+
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.0.7.vba here], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
+  * Requirements: Vim 7.1
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.1.0.vba here (v2.1.0)], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
