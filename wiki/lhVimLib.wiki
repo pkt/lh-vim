@@ -30,8 +30,7 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 == Lists related functions ==
 || `lh#list#Match()` || Searches the first element in a list that matches a pattern ||
 || `lh#list#Find_if()` || Searches the first element in a list that verifies a predicate ||
-|| `lh#list#unique_sort()` || Sorts the elements of a list, and makes sure they are all unique (trunk only for the
-moment) ||
+|| `lh#list#unique_sort()` || Sorts the elements of a list, and makes sure they are all unique (trunk only for the moment) ||
 
 
 == Graphs related functions ==
