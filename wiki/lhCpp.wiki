@@ -8,7 +8,7 @@ lh-cpp is an heterogeneous suite of helpers for C and C++ programming.
 It provides the following things:
   * Smart snippets for [lhCpp#Brackets brackets pairs], [lhCpp#Code_snippets control statements]
   * a few advanced wizards
-  * advanced features to Generate ready to fill-in function comments for Doxygen, Jump to a function implementation, Search for un-implemnted or undeclared functions, _etc._
+  * advanced features to Generate ready to fill-in function comments for Doxygen, Jump to a function implementation, Search for un-implemented or undeclared functions, _etc._
   * [lhCpp#Syntax_highlighting syntax highlighting] for identified counter-idioms and bad practices (catch by value, assignments in conditions, throw specifications)
   * an [lhCpp#API API] to build even more complex wizards and advanced features
 
@@ -74,9 +74,12 @@ if () {
  * `tpl` expands into `template <`_<cursor>_`>«»` ;
  * `<m-t>` inserts `typedef`, or `typename` depending on what is before the cursor ;
  * `<m-r>` inserts `return`, and tries to correctly place the semicolon, and a placeholder, depending on what follows the cursor ;
- * `<c-x>be`, `<c-x>rbe`, `<c->se`
- * `,sc` | `,dc` | `,rc` | `,cc` | `,,sc` | `,,dc` | `,,rc` | `,,cc`
- * `#d`, `#i`, `#e`, `#0`, `,0`
+ * `<c-x>be`, `<c-x>rbe` replace `(foo`_<cursor>_`)` with `(foo.begin(),foo.end()`_<cursor>_`)` (or `rbegin`/`rend`) ;
+ * `<c->se`: attempt to fill-in a `switch-case` from an enumerated type ;
+ * `,sc` | `,dc` | `,rc` | `,cc` surround the selection with ; `static_cast<`_<cursor>_`>(`_<selection>_`)`, `dynamic_cast`, `reinterpret_cast`, or `const_cast` ;
+ * `,,sc` | `,,dc` | `,,rc` | `,,cc` try to convert the C-cast selected into the C++-cast requested ;
+ * `#d` expands into `#define`, `#i` into `#ifdef`, `#e` into `endif`, `#n` into `#include` ; 
+ * `,0` surrounds the selected lines with `#if 0 ... #endif` ;
  * `pub` expands into `public:\n`, `pro` expands into `protected:\n`, `pri` expands into `private:\n` ;
  * `vir` expands into `virtual` ;
  * `firend` is replaced by `friend` ;
@@ -85,32 +88,33 @@ if () {
 
 === Templates ===
  * stream inserters, stream extractor
- * bool operator
+ * bool operator: almost portable hack to provide a boolean operator, strongly inspired by Matthew Wilson's _Imperfect C++_.
 
 === Wizards and other high-level features ===
- * class
- * singleton
- * `[lhCpp_Doxygen :DOX]`
- * `[lhCpp_GotoImplementation :GOTOIMPL]`, `:MOVETOIMPL`
- * `[lhCpp_Accessors :ADDATTRIBUTE]`
- * `:CppDisplayUnmatchedFunctions`, `<c-x>u`
+ * class: builds a class skeleton based on the selected (simplified) semantics (value copyable, stack-based non copyable, entity non-copyable, entity clonable)
+ * singleton: my very own way to define singletons based on my conclusions on this anti-pattern -- you may prefer Loki's or ACE's solutions
+ * `[lhCpp_Doxygen :DOX]`: analyses a function signature (parameters, return type, throw specification) and provide a default Doxygenized documentation
+ * `[lhCpp_GotoImplementation :GOTOIMPL]`, `:MOVETOIMPL`: search and jump to a function definition from its declaration, provide a default one in the _ad'hoc_ implementation file if no definition is found
+ * `[lhCpp_Accessors :ADDATTRIBUTE]`: old facility that helps define const-correct accessors and mutator, will be reworked.
+ * `:CppDisplayUnmatchedFunctions`, `<c-x>u`: shows the list of functions for which there is neither a declaration, nor a definition
+ * `Override`: Ask which inherited virtual function should be overridden in the current class (feature still in its very early stages)
 
 == Syntax highlighting ==
- * assign in condition
- * catch by value
- * throw specifications
- * function definitions
+ * assign in condition (bad practice)
+ * catch by value (bad practice)
+ * throw specifications ([http://www.gotw.ca/gotw/082.htm do you really know what they are about, and still want them?])
+ * function definitions 
 
 == Miscellaneous ==
- * home like VC++
- * omap-param
+ * home like VC++: mappings that override `<home>` and `<end>` to mimic how these keys behave in VC++.
+ * omap-param: defines the o-mappings `,i` and `,a` to select the current parameter (in a list of parameters.
  * a.vim, 
  * SiR, local_vimrc 
 
 == API ==
 
 = Download =
-  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhBrackets lh-map-tools], [muTemplate mu-template]
+  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhBrackets lh-map-tools] (take the 1.0.0 beta version from the subversion repository), [muTemplate mu-template]
   * As a vimball: [http://lh-vim.googlecode.com/files/lh-cpp-1.0.0.vba here] (not ready yet), or at [http://www.vim.org/scripts/script.php?script_id=336 Vim.org] (old version)
   * Checkout from the SVN repository
     {{{  
