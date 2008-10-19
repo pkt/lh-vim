@@ -37,7 +37,7 @@ Jumping to the next/previous placeholder:
 
 ==== Brackets insertion ====
 
-This subsystem provides a command that helps define INSERT-, NORMAL-, and SELECT-mode mappings to insert any pairs of brackets-like characters.
+This subsystem provides a command that helps define INSERT-, NORMAL-, and VISUAL-mode mappings to insert any pairs of brackets-like characters.
 
   * The INSERT-mode mappings will 
     * insert the pair of brackets-like characters when the opening one is triggered, add a placeholder after the closing character, and move the cursor between the two characters;
