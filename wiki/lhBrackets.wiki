@@ -52,7 +52,8 @@ It is possible to:
   * define the mappings only in some modes (thanks to the options `-insert`, `-visual`, and also `-normal`)
   * make the mappings line-wise (thanks to the `-nl` option),
   * tune how the NORMAL-mode mapping select a current _anything_ (thanks to the `-normal` option),
-  * toggle the definitions of all the brackets mappings by pressing <F9> (`:h <Plug>ToggleBrackets`).
+  * toggle the definitions of all the brackets mappings by pressing `<F9>` (`:h <Plug>ToggleBrackets`).
+  * Make the mappings with `:Brackets!`, or local to a buffer with `:Brackets`
 
 Here is an excerpt from the C&C++ brackets definitions, see the documentation for more help.
 {{{
@@ -114,3 +115,4 @@ svn checkout http://lh-vim.googlecode.com/svn/map-tools/branches/1.0.0 map-tools
   * All the [http://vim.wikia.com/wiki/Category:Brackets brackets related tips on vim.wikia] ;
   * Most of my ftplugins for examples of use ;
   * [muTemplate], a template-files expander built on top of map-tools.
+  * [http://www.vim.org/scripts/script.php?script_id=1697 surround plugin on SF]
