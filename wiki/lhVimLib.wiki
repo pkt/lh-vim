@@ -13,10 +13,22 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 
 = Functions =
 
+  * [lhVimLib#Miscellanous_functions Miscellanous functions]
+  * [lhVimLib#Lists_related_functions Lists related functions]
+  * [lhVimLib#Graphs_related_functions Graphs related functions]
+  * [lhVimLib#Graphs_related_functions Paths related functions]
+  * [lhVimLib#Commands_related_functions Commands related functions]
+  * [lhVimLib#Menus_related_functions Menus related functions]
+  * [lhVimLib#Buffers_related_functions Buffers related functions]
+  * [lhVimLib#Syntax_related_functions Syntax related functions]
+  * [lhVimLib#UI_functions UI functions]
+
 == Miscellanous functions ==
+|| `lh#common#echomsgMultilines()` || Applies `:echomsg` on a multi-lines text ||
 || `lh#common#ErrorMsg()` || Displays an error message ||
 || `lh#common#WarningMsg()` || Displays a warning ||
 || `lh#common#CheckDeps()` || Checks a VimL symbol is loaded ||
+|| `lh#visual#selection()` || Returns the visually selected text ||
 || `lh#option#Get()` || Fetches the value of a user defined option, that may be _empty_ ||
 || `lh#option#GetNonEmpty()` || Fetches the value of a user defined option, that is not _empty_ ||
 || `lh#askvim#Exe()` || Returns what a VimL command echoes ||
@@ -24,13 +36,14 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 || `lh#position#CharAtMark()` || Obtains the character under a mark ||
 || `lh#position#CharAtPos()` || Obtains the character at a given position ||
 || `lh#event#RegisterForOneExecutionAt()` || Registers a command to be executed once (and only once) when an event is triggered on the current file ||
-|| `lh#encoding#Iconv()` || Unlike `iconv()`, this wrapper returns {expr} when we know no convertion can be acheived. ||
+|| `lh#encoding#Iconv()` || Unlike `iconv()`, this wrapper returns {expr} when we know no conversion can be achieved. ||
 
 
 == Lists related functions ==
 || `lh#list#Match()` || Searches the first element in a list that matches a pattern ||
 || `lh#list#Find_if()` || Searches the first element in a list that verifies a predicate ||
 || `lh#list#unique_sort()` || Sorts the elements of a list, and makes sure they are all unique (trunk only for the moment) ||
+|| `lh#list#Transform()` || Applies a transformation on each element from a list ; unlike `map()`, the input list is left unchanged ||
 
 
 == Graphs related functions ==
@@ -73,6 +86,7 @@ See also the documentation of the old functions at [http://hermitte.free.fr/vim/
 || `lh#buffer#dialog#toggle_help()` || (experimental) ||
 || `lh#buffer#dialog#add_help()` || (experimental) ||
 || `lh#buffer#dialog#new()` || (experimental) ||
+|| `lh#buffer#dialog#Select()` || (experimental) ||
 
 
 == Syntax related functions ==
@@ -112,5 +126,6 @@ See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-only
     }}}
 
-= Other Vim libraries =
+= Other VimL libraries =
   * [http://www.vim.org/scripts/script.php?script_id=197 genutils]
+  * [http://www.vim.org/scripts/script.php?script_id=2332 pathogen]
