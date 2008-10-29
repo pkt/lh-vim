@@ -1,0 +1,37 @@
+#summary lh-refactor: Generic refactoring plugin
+#labels Featured,alpha
+
+= Features =
+
+lh-refactor is a generic refactoring plugin.
+
+So far it supports the following refactorings:
+  * Extract Function,
+  * Extract Variable,
+  * Extract Type,
+and the following languages: C, C++, Java, Pascal, VimL.
+
+The list of languages supported can be extended (however some refactoring work in the plugin is required to simplify that part)
+
+The complete documentation can be browsed [http://code.google.com/p/lh-vim/source/browse/refactor/trunk/doc/refactor.txt in the subversion repository]
+
+= Visual-mode Mappings =
+  * `<C-X>f` to eXtract a Function
+  * `<C-X>v` to eXtract a Variable
+  * `<C-X>t` to eXtract a Type
+  * `<C-X>p` and `<C-X>P` to Put back the definition that as been extracted
+
+= Download =
+  * Requirements: Vim 7.1, [lhVimLib lh-vim-lib]
+  * Checkout from the SVN repository
+    {{{  
+# Non-members may check out a read-only working copy anonymously over HTTP.
+svn checkout http://lh-vim.googlecode.com/svn/refactor/trunk/ lh-refactor-read-only
+    }}}
+
+= See also =
+  * Klaus Horsten's ti: [http://vim.wikia.com/wiki/Vim_as_a_refactoring_tool_and_some_examples_in_C_sharp Vim as refactoring tool (with examples in C#)]
+  * [lhCpp lh-cpp] defines a few other refactoring-like functionalities: 
+     * Generate accessor and mutator (`:ADDATTRIBUTE`), 
+     * Generate default body given a function signature (`:GOTOIMPL`)
+  * [http://www.refactoring.com/catalog/index.html Refactoring.com]
