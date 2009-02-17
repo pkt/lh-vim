@@ -129,3 +129,5 @@ svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-onl
 = Other VimL libraries =
   * [http://www.vim.org/scripts/script.php?script_id=197 genutils]
   * [http://www.vim.org/scripts/script.php?script_id=2332 pathogen]
+  * [http://www.vim.org/scripts/script.php?script_id=1863 Tom Link's tlib]
+  * [http://github.com/MarcWeber/theonevimlib/tree/master theonevimlib], initiated by Marc Weber
