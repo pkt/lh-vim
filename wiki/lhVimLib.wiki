@@ -1,5 +1,5 @@
 ﻿#summary vim-lib: Library of VimL functions
-#labels Featured
+#labels Featured,lh-vim-lib
 
 = Introduction =
 
@@ -83,10 +83,10 @@ See also the documentation of the old functions at [http://hermitte.free.fr/vim/
 || `lh#buffer#Find()` || Finds and jumps to the window that matches the buffer identifier, does nothing if not found ||
 || `lh#buffer#Jump()` || Like `lh#buffer#Find()`, but opens the buffer in a new window if it no matching window was opened before ||
 || `lh#buffer#Scratch()` || Opens a new scratch buffer ||
-|| `lh#buffer#dialog#toggle_help()` || (experimental) ||
-|| `lh#buffer#dialog#add_help()` || (experimental) ||
-|| `lh#buffer#dialog#new()` || (experimental) ||
-|| `lh#buffer#dialog#Select()` || (experimental) ||
+|| `lh#buffer#dialog#toggle_help()` || see [Dialog lh-vim-lib/dialog] ||
+|| `lh#buffer#dialog#add_help()` || see [Dialog lh-vim-lib/dialog] ||
+|| `lh#buffer#dialog#new()` || see [Dialog lh-vim-lib/dialog] ||
+|| `lh#buffer#dialog#Select()` || see [Dialog lh-vim-lib/dialog] ||
 
 
 == Syntax related functions ==
