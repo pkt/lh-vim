@@ -1,5 +1,5 @@
 #summary lh#buffer#dialog: User Interface API.
-#labels beta,Phase-Design
+#labels lh-vim-lib,Phase-Design,beta
 
 = Introduction =
 
