@@ -1,0 +1,63 @@
+#summary UT: Unit Testing Framework for Vim
+#labels Featured,beta,UT
+
+= Introduction =
+
+_UT_ is another Test Unit Framework for Vim, which main particularity is to fill the |quickfix| window with the assertion failures.
+
+= Features =
+  * Assertion failures are reported in the quickfix window
+  * Assertion syntax is simple, check Tom Link's suite, it's the same
+  * Supports banged `:Assert!` to stop processing a given test on failed assertions
+  * One file == a suite
+  * All the `s:Test*` functions of a suite are executed (almost) independently (i.e., a critical `:Assert!` failure will stop the Test of the function, and `lh#UT` will proceed to the next `s:Test` function
+  * Lightweight and simple to use: there is only one command defined, all the other definitions are kept in an autoload plugin.
+  * A suite == a file
+  * Several `s:TestXxx()` per suite
+  * +optional `s:Setup()`, `s:Teardown()`
+  * Supports `:Comments`
+  * `s:LocalFunctions()`, `s:variables`, and `l:variables` are supported
+  * Takes advantage of [BTW BuildToolsWrapper]'s `:COpen` command if installed
+
+=== Examples ===
+See:
+  * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT.vim tests/lh/UT.vim] for a classical test,
+  * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT-fixture.vim tests/lh/UT.vim] for a test with fixtures.
+
+
+=== To Do ===
+  * Simplify `:Assert` substitution: the file name is known when `:UTRun` is executed. There is no need to add it during the pre-processing phase.
+  * Add `&efm` for VimL errors like the one produced by `:Assert 0 + [0]`
+  * Test under windows
+  * Command to exclude, or specify the tests to play => `:UTPlay`, `:UTIgnore`
+  * Simplify `s:errors` functions
+  * Merge with Tom Link's tAssert plugin? (the UI is quite different)
+  * `:AssertEquals` that shows the name of both expressions and their values as well -- a correct distinction of both parameters will be tricky with regexes ; using functions will loose either the name, or the value in case of local/script variables use ; we need macros _à la C_...
+  * Support Embedded comments like for instance: 
+{{{
+Assert 1 == 1 " 1 must value 1
+}}}
+  * Ways to test buffers produced
+  * Count successful tests and not successful assertions
+  * Short-cuts to run the Unit Tests associated to a given vim script
+  * Always execute s:Teardown() -- move its call to a :finally bloc
+
+
+= Design Choices = 
+  * The assertions supported by this plugin are expected to be made in a Unit Testing file, they are not to be used in regular VimL scripts. Check Thomas Link's plugin, it is much more suited for that kind of assertions.
+
+  * In order to be able to produce the quickfix entries, the plugin first parses the Unit Test file to complete all `:Assert` occurrences with extra information about the origin file and the line number where the assertion is made.
+
+
+= Download =
+  * Requirements: Vim 7.1
+  * As a vimball: [http://lh-vim.googlecode.com/files/UT-0.0.1.vba here], or at [http://www.vim.org/scripts/script.php?script_id=??? Vim.org]
+  * Checkout from the SVN repository
+    {{{  
+# Non-members may check out a read-only working copy anonymously over HTTP.
+svn checkout http://lh-vim.googlecode.com/svn/UT/trunk/ UT-read-only
+    }}}
+
+= Other Unit Testing Framework for Vim =
+  * Tom Link's tAssert plugin.
+  * ...
