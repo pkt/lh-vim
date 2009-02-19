@@ -19,7 +19,40 @@ _UT_ is another Test Unit Framework for Vim, which main particularity is to fill
   * `s:LocalFunctions()`, `s:variables`, and `l:variables` are supported
   * Takes advantage of [BTW BuildToolsWrapper]'s `:COpen` command if installed
 
-=== Examples ===
+=== Usage ===
+  * Create a new vim script, it will be a Unit Testing Suite.
+  * One of the first lines must contain
+{{{
+UTSuite Some intelligible name for the suite
+}}}
+  * Then you are free to directly assert anything you wish as long as it is a valid vim |expression|, e.g.
+{{{
+Assert 1 > 2
+Assert 1 > 0
+Assert s:foo > s:Bar(g:var + 28) / strlen("foobar")
+}}}
+  * or to define as many independent tests as you wish. A test is a function with a name starting with `s:Test`. Even if a test critically fails, the next test will be executed, e.g.
+{{{
+function s:Test1()
+  let var = SomeFucntion()
+  Assert! type(var) == type(0)
+  Assert var < 42
+  Assert! var > 0 
+
+  " Some other code that won't be executed if the previous assertion failed
+  " /*the wiki does not recognizes vim comments*/
+  let i = var / 42.0
+  Comment This comment may never be displayed if {var} is negative or not a number
+endfunction
+
+function s:Test2()
+  Assert s:what != Ever()
+endfunction
+}}}
+  * If you wish to see a set-up function executed before each test, define the `s:Setup()` function.
+  * If you wish to see a clean-up function executed after each test, define the `s:Teardown()` function.
+
+==== Examples ====
 See:
   * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT.vim tests/lh/UT.vim] for a classical test,
   * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT-fixtures.vim tests/lh/UT-fixtures.vim] for a test with fixtures.
@@ -41,6 +74,7 @@ Assert 1 == 1 " 1 must value 1
   * Count successful tests and not successful assertions
   * Short-cuts to run the Unit Tests associated to a given vim script
   * Always execute s:Teardown() -- move its call to a :finally bloc
+  * Find a way to prevent the potential script scope pollution
 
 
 = Design Choices = 
@@ -58,6 +92,7 @@ Assert 1 == 1 " 1 must value 1
 svn checkout http://lh-vim.googlecode.com/svn/UT/trunk/ UT-read-only
     }}}
 
-= Other Unit Testing Framework for Vim =
-  * Tom Link's tAssert plugin.
-  * ...
+= Other Tests related plugins for Vim =
+  * Tom Link's [http://www.vim.org/scripts/script.php?script_id=1730 tAssert plugin],
+  * Staale Flock's [http://www.vim.org/scripts/script.php?script_id=1125 vimUnit plugin],
+  * Meikel Brandmeyer's [http://www.vim.org/scripts/script.php?script_id=2213 vimTAP plugin].
