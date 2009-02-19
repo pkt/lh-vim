@@ -22,7 +22,7 @@ _UT_ is another Test Unit Framework for Vim, which main particularity is to fill
 === Examples ===
 See:
   * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT.vim tests/lh/UT.vim] for a classical test,
-  * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT-fixture.vim tests/lh/UT.vim] for a test with fixtures.
+  * [http://code.google.com/p/lh-vim/source/browse/UT/trunk/tests/lh/UT-fixtures.vim tests/lh/UT-fixtures.vim] for a test with fixtures.
 
 
 === To Do ===
