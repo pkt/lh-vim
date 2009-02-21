@@ -53,6 +53,7 @@ endfunction
 }}}
   * If you wish to see a set-up function executed before each test, define the `s:Setup()` function.
   * If you wish to see a clean-up function executed after each test, define the `s:Teardown()` function.
+  * Now run `:UTRun` of your test script (filename), and ... debug your failed assertions.
 
 ==== Examples ====
 See:
@@ -61,9 +62,8 @@ See:
 
 
 === To Do ===
-  * Simplify `:Assert` substitution: the file name is known when `:UTRun` is executed. There is no need to add it during the pre-processing phase.
   * Add `&efm` for VimL errors like the one produced by `:Assert 0 + [0]`
-  * Test under windows
+  * Check UT works fine under windows (where paths have spaces, etc), and on UTF-8 files
   * Simplify `s:errors` functions
   * Merge with Tom Link's tAssert plugin? (the UI is quite different)
   * `:AssertEquals` that shows the name of both expressions and their values as well -- a correct distinction of both parameters will be tricky with regexes ; using functions will loose either the name, or the value in case of local/script variables use ; we need macros _à la C_...
@@ -79,7 +79,7 @@ Assert 1 == 1 " 1 must value 1
 = Design Choices = 
   * The assertions supported by this plugin are expected to be made in a Unit Testing file, they are not to be used in regular VimL scripts as a _Design by Contract_ tool. Check Thomas Link's plugin, it is much more suited for that kind of assertions.
 
-  * In order to be able to produce the quickfix entries, the plugin first parses the Unit Test file to complete all `:Assert` occurrences with extra information about the origin file and the line number where the assertion is made.
+  * In order to be able to produce the quickfix entries, the plugin first parses the Unit Test file to complete all `:Assert` occurrences with extra information about the line number where the assertion is made.
 
 
 = Download =
