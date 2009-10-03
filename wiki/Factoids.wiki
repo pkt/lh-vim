@@ -1,0 +1,5 @@
+#summary Ohloh factoids
+#labels Featured
+
+<wiki:gadget url="http://www.ohloh.net/p/21020/widgets/project_basic_stats.xml" height="220"  border="1" />
+<wiki:gadget url="http://www.ohloh.net/p/21020/widgets/project_factoids.xml" border="0" width="500" />
