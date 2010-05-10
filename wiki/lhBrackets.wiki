@@ -96,13 +96,11 @@ As [lhVimLib lh-vim-lib], map-tools provides a few functions of its own. All the
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib]
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-map-tools-0.6.1.vba here], or at [http://www.vim.org/scripts/script.php?script_id=50 Vim.org]
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-map-tools-1.0.0.vba here], or at [http://www.vim.org/scripts/script.php?script_id=50 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/map-tools/trunk/ map-tools-read-only
-# Or to obtain the current development version:
-svn checkout http://lh-vim.googlecode.com/svn/map-tools/branches/1.0.0 map-tools-unstable-read-only
     }}}
 
 == Credits ==
