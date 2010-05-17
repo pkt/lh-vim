@@ -36,7 +36,7 @@ Assert s:foo > s:Bar(g:var + 28) / strlen("foobar")
   * or to define as many independent tests as you wish. A test is a function with a name starting with `s:Test`. Even if a test critically fails, the next test will be executed, e.g.
 {{{
 function s:Test1()
-  let var = SomeFucntion()
+  let var = SomeFunction()
   Assert! type(var) == type(0)
   Assert var < 42
   Assert! var > 0 
@@ -84,7 +84,7 @@ Assert 1 == 1 " 1 must value 1
 
 = Download =
   * Requirements: Vim 7.1, [lhVimLib lh-vim-lib]
-  * As a vimball: [http://lh-vim.googlecode.com/files/UT-0.0.2.vba here], or at [http://www.vim.org/scripts/script.php?script_id=??? Vim.org]
+  * As a vimball: [http://lh-vim.googlecode.com/files/UT-0.0.3.vba here], or at [http://www.vim.org/scripts/script.php?script_id=??? Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
