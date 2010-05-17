@@ -79,7 +79,7 @@ A few plugins provide some similar features:
 
 == 2. Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib]
-  * As a vimball: [http://lh-vim.googlecode.com/files/searchInRuntime-2.1.6.vba here], or at [http://www.vim.org/scripts/script.php?script_id=229 Vim.org]
+  * As a vimball: [http://lh-vim.googlecode.com/files/searchInRuntime-2.1.8.vba here], or at [http://www.vim.org/scripts/script.php?script_id=229 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
