@@ -1,5 +1,5 @@
 #summary mu-template: template-files expander
-#labels Featured
+#labels Featured,muTemplate
 
 == Introduction ==
 
@@ -68,11 +68,11 @@ However, it misses the following features:
 
   * The snippet _function_ expands into a `:function!` definition. If the current script is an autoload-plugin, the function name matches the autoload-plugin name -- to insert other kinds of functions, just use the `fu` abbreviation from `vim_snippets.vim`. Otherwise, the function name will just start with a `s:`.
 
-  * On creation of a new vim help file [*], the file is pre-filed with:
+  * On creation of a new vim help file (1), the file is pre-filed with:
     * a header compatible with what is expected by `:h local-additions`, your name, and a `$Date$`,
     * a default footer (`$Id`, copyright line, modeline, _etc._)
     * and two skeletons for the sections _Contents_, and _Presentation_.
-  [*]Creating a new vim help file may require the following actions: 
+  (1) Creating a new vim help file may require the following actions: 
 {{{
 :e ~/.vim/doc/foo.txt
 :set ft=help
@@ -86,7 +86,7 @@ NB: there are no µTemplate snippets for `:if`, `:try`, _etc._ because they are 
 Most of my C and C++ template-files are shipped with [lhCpp lh-cpp]. However a few ones are still shipped with µTemplate:
   * On creation of a new C or C++ file, the file is filled according to the kind of file detected:
     * _header files_ first compute the relative current filename from the root of the current project, and contains a (-n overridable) file header, and adds automatically generated anti-reinclusion guards
-    * _source files_ first compute the relative current filename from the root of the current project, and contains a (-n overridable) file header, and includes any matching _header file_ found (in the current directory, or any compatible directory  [http://code.google.com/p/lh-vim/source/browse/cpp/trunk/after/plugin/a.vim a.vim] is installed)
+    * _source files_ first compute the relative current filename from the root of the current project, and contains a (-n overridable) file header, and includes any matching _header file_ found (in the current directory, or any compatible directory when [http://code.google.com/p/lh-vim/source/browse/cpp/trunk/after/plugin/a.vim a.vim] is installed)
 
   * snippets for `for`, `for (int i`, `while`, `do...while`, `switch`, `if` ; NB: [lhCpp lh-cpp] defines alternative [lhCpp#Code_snippets smart-snippets for these control-statements].
 
