@@ -138,6 +138,45 @@ VimL: silent! unlet s:times
 }}}
 
 
+== Shipped templates ==
+µTemplate is shipped by default with the following templates:
+
+=== Vim ===
+
+  * On creation of a new `.vim` file, the file is filled according to the kind of vim-script detected (from the directory where the new file is stored):
+    * _autoload-plugins_ will contain a few debug oriented functions ;
+    * _(plain) plugins_ will contain a global anti-reinclusion guard and its override variable (for maintenance purpose), an internal `s:k_version` number, and a few indications about what plugins should contain ;
+    * _ft-plugins_ will contain a global and a local anti-reinclusion guard and their override variable (for maintenance purpose), an internal `s:k_version` number, and a few indications about what ft-plugins should contain ;
+    * _local-vimrcs_ will look a lot like ft-plugin ;
+    * otherwise, the file won't contain anything specific ;
+    * *in all cases*:
+      * a default header is filled with RCS tags ($Id$, $Date$), and other fields for the filename (kept relative to `{rtp}` when possible), the author/maintainer, the version, a short description, history, todo, _etc._ ;
+      * `cpo&vim` is set for the duration of the script ;
+      * a footer forces `foldmethod` to `marker`.
+  All the choices made are the result of what I've come to consider over the years to be good practices regarding vim files contents.
+
+  * The snippets _foreach_, _fori_, and _loop-arg_ expand respectively to the `:for` vim-loop, or a `:while` vim-loop that increments _i_, or another index variable.
+
+  * The snippet _plugmap_ expands into an overridable _plug-mapping_.
+
+  * The snippet _autoload-debug_ expands into the debug-oriented functions added by default to autoload-plugins -- its purpose is to add simply those functions to autoload-plugins that don't have them yet.
+
+  * The snippet _function_ expands into a `:function!` definition. If the current script is an autoload-plugin, the function name matches the autoload-plugin name -- to insert other kinds of functions, just use the `fu` abbreviation from `vim_snippets.vim`. Otherwise, the function name will just start with a `s:`.
+
+
+NB: there are no µTemplate snippets for `:if`, `:try`, _etc._ because they are maintained independently thanks to [lhBracket my bracketing system] in `vim_snippets.vim` (todo: add link).
+
+=== C & C++ ===
+
+=== LaTeX ===
+
+=== Perl === 
+
+=== XSLT ===
+
+=== Other ===
+
+
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
   * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.0.3.vba here]
