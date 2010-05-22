@@ -20,17 +20,17 @@ It provides the following things:
 The insertion of pair of brackets-like characters is eased thanks to [lhBrackets map-tool].
 || *In mode*            || *INSERT*               || *VISUAL*                || *NORMAL* ||
 || *keys*               || Expands into ..        || Surrounds the selection with ... ^2^ || Surrounds the current ... ||
-|| (                    || `(`_<cursor>_`)«»`     || `(`_<selection>_`)`       || word ||
-|| [                    || `[`_<cursor>_`]«»`     || ^1^                       || ^1^  ||
-|| _<localleader>_[     ||                        || `[`_<selection>_`]`       || word ||
-|| {                    || `{`\n_<cursor>_\n`}«»` || `{`_<selection>_`}`       || word ||
-|| #{                   || `{`_<cursor>_`}«»`     ||                           ||      ||
-|| _<localleader>_{     ||                        || `{\n`_<selection>_`\n}«»` || line ||
-|| < || `<`_<cursor>_`>«»` after `#include`, or `template` on the same line || || ||
-|| " (1 double quote)   || `"`_<cursor>_`"«»`     || ^1^                       || ^1^  ||
-|| ""                   ||                        || `"`_<selection>_`"`       || word ||
-|| '                    || `'`_<cursor>_`'«»`     || ^1^                       || ^1^  ||
-|| '' (2 single quotes) ||                        || `'`_<selection>_`'`       || word ||
+|| (                    || `(<cursor>)«»`     || `(<selection>)`       || word ||
+|| [                    || `[<cursor>]«»`     || ^1^                       || ^1^  ||
+|| `<localleader>[`     ||                        || `[<selection>]`       || word ||
+|| {                    || `{\n<cursor>\n}«»` || `{<selection>}`       || word ||
+|| #{                   || `{<cursor>}«»`     ||                           ||      ||
+|| `<localleader>{`     ||                        || `{\n<selection>\n}«»` || line ||
+|| < || `<<cursor>>«»` after `#include`, or `template` on the same line || || ||
+|| " (1 double quote)   || `"<cursor>"«»`     || ^1^                       || ^1^  ||
+|| ""                   ||                        || `"<selection>"`       || word ||
+|| '                    || `'<cursor>'«»`     || ^1^                       || ^1^  ||
+|| '' (2 single quotes) ||                        || `'<selection>'`       || word ||
 
 ====Notes:====
  * ^1^ Not defined to avoid hijacking default vim key bindings.
@@ -71,12 +71,12 @@ if () {
 }}}
 
 === Miscellaneous shortcuts ===
- * `tpl` expands into `template <`_<cursor>_`>«»` ;
+ * `tpl` expands into `template <<cursor>>«»` ;
  * `<m-t>` inserts `typedef`, or `typename` depending on what is before the cursor ;
  * `<m-r>` inserts `return`, and tries to correctly place the semicolon, and a placeholder, depending on what follows the cursor ;
- * `<c-x>be`, `<c-x>rbe` replace `(foo`_<cursor>_`)` with `(foo.begin(),foo.end()`_<cursor>_`)` (or `rbegin`/`rend`) ;
+ * `<c-x>be`, `<c-x>rbe` replace `(foo<cursor>)` with `(foo.begin(),foo.end()<cursor>)` (or `rbegin`/`rend`) ;
  * `<c->se`: attempt to fill-in a `switch-case` from an enumerated type ;
- * `,sc` | `,dc` | `,rc` | `,cc` surround the selection with ; `static_cast<`_<cursor>_`>(`_<selection>_`)`, `dynamic_cast`, `reinterpret_cast`, or `const_cast` ;
+ * `,sc` | `,dc` | `,rc` | `,cc` surround the selection with ; `static_cast<<cursor>>(<selection>)`, `dynamic_cast`, `reinterpret_cast`, or `const_cast` ;
  * `,,sc` | `,,dc` | `,,rc` | `,,cc` try to convert the C-cast selected into the C++-cast requested ;
  * `#d` expands into `#define`, `#i` into `#ifdef`, `#e` into `endif`, `#n` into `#include` ; 
  * `,0` surrounds the selected lines with `#if 0 ... #endif` ;
@@ -84,7 +84,7 @@ if () {
  * `vir` expands into `virtual` ;
  * `firend` is replaced by `friend` ;
  * `<m-s>` inserts `std::`, `<m-b>` inserts `boost:` ;
- * `?:` expands into _<cursor>_`? «» : «»;` ;
+ * `?:` expands into `<cursor>? «» : «»;` ;
 
 === Templates ===
  * stream inserters, stream extractor
