@@ -1,5 +1,5 @@
 #summary lh-refactor: Generic refactoring plugin
-#labels Featured,alpha
+#labels Featured,beta,lh-refactor
 
 = Features =
 
@@ -23,6 +23,7 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 
 = Download =
   * Requirements: Vim 7.1, [lhVimLib lh-vim-lib], and my [lhBrackets bracketing system].
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-refactor-0.1.0.vba here (v0.1.0)]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
