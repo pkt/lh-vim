@@ -39,8 +39,8 @@
   * The expansion happens after any _[http://code.google.com/p/lh-vim/source/browse/misc/trunk/plugin/local_vimrc.vim local vimrcs]_ present are loaded -- in order to set project-specific variables before the expansion is done.
 
 However, it misses the following features:
-  * Tied placeholders (modifying one placeholder modifyies other placeholders) -- I have to see how I can exploit [http://www.vim.org/scripts/script.php?script_id=953 multiselect] in order to provide this feature.
-  * Several snippets per template-file -- It's extremelly unlikelly that µtemplate will ever work this way.
+  * Tied placeholders (modifying one placeholder modifies other placeholders) -- I have to see how I can exploit [http://www.vim.org/scripts/script.php?script_id=953 multiselect] in order to provide this feature.
+  * Several snippets per template-file -- It's extremely unlikely that µtemplate will ever work this way.
 
 == Shipped templates ==
 µTemplate is shipped by default with the following templates:
@@ -223,7 +223,7 @@ VimL: silent! unlet s:times
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
-  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.0.3.vba here]
+  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.0.4.vba here]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
