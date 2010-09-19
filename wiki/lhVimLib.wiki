@@ -32,6 +32,7 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
 || `lh#common#error_msg()` || Displays an error message ||
 || `lh#common#warning_msg()` || Displays a warning ||
 || `lh#encoding#iconv()` || Unlike `iconv()`, this wrapper returns {expr} when we know no conversion can be achieved. ||
+|| `lh#env#expand_all()` || Expands environment variables found in strings ||
 || `lh#event#register_for_one_execution_at()` || Registers a command to be executed once (and only once) when an event is triggered on the current file ||
 || `lh#option#get()` || Fetches the value of a user defined option, that may be _empty_ ||
 || `lh#option#get_non_empty()` || Fetches the value of a user defined option, that is not _empty_ ||
@@ -137,7 +138,7 @@ See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 
 = Download =
   * Requirements: Vim 7.1
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.2.0.vba here (v2.2.0)], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.2.1.vba here (v2.2.1)], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
