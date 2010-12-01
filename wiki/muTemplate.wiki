@@ -38,8 +38,9 @@
   * I18n friendly ;
   * The expansion happens after any _[http://code.google.com/p/lh-vim/source/browse/misc/trunk/plugin/local_vimrc.vim local vimrcs]_ present are loaded -- in order to set project-specific variables before the expansion is done.
 
-However, it misses the following features:
-  * Tied placeholders (modifying one placeholder modifies other placeholders) -- I have to see how I can exploit [http://www.vim.org/scripts/script.php?script_id=953 multiselect] in order to provide this feature.
+  * Thanks to [http://www.vim.org/scripts/script.php?script_id=3326 Tom Link's StakeHolders] plugin, µTemplate does now have tied placeholders (modifying one named placeholder modifies other placeholders with the same name). Not installing Stakeholders will not prevent you from using µTemplate.
+
+However, it misses the following feature:
   * Several snippets per template-file -- It's extremely unlikely that µtemplate will ever work this way.
 
 == Shipped templates ==
@@ -58,7 +59,7 @@ However, it misses the following features:
       * `cpo&vim` is set for the duration of the script ;
       * a footer forces `foldmethod` to `marker`.
   All the choices made are the result of what I've come to consider over the years to be good practices regarding vim files contents.
-  Each part may be individually overridden in you local settings (`:h MuT-paths-override`)
+  Each part may be individually overridden in your local settings (`:h MuT-paths-override`)
 
   * The snippets _foreach_, _fori_, and _loop-arg_ expand respectively to the `:for` vim-loop, or a `:while` vim-loop that increments _i_, or another index variable.
 
@@ -223,12 +224,13 @@ VimL: silent! unlet s:times
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
-  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.0.4.vba here]
+  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.1.0.vba here]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-read-only
     }}}
+  * Vim Addon Manager: [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/mu-template-addon-info.txt mu-template-addon-info.txt]
 
 == Credits ==
   * Gergely Kontra is the author of the first version of µTemplate
