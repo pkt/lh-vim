@@ -138,12 +138,13 @@ See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 
 = Download =
   * Requirements: Vim 7.1
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.2.1.vba here (v2.2.1)], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-vim-lib-2.2.2.vba here (v2.2.2)], or at [http://www.vim.org/scripts/script.php?script_id=214 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-only
     }}}
+  * Vim Addon Manager: [http://code.google.com/p/lh-vim/source/browse/vim-lib/trunk/lh-vim-lib-addon-info.txt lh-vim-lib-addon-info.txt]
 
 = Other VimL libraries =
   * [http://www.vim.org/scripts/script.php?script_id=197 genutils]
