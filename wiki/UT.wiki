@@ -90,8 +90,11 @@ Assert 1 == 1 " 1 must value 1
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/UT/trunk/ UT-read-only
     }}}
+  * Vim Addon Manager: [http://code.google.com/p/lh-vim/source/browse/UT/trunk/UT-addon-info.txt UT-addon-info.txt]
 
 = Other Tests related plugins for Vim =
-  * Tom Link's [http://www.vim.org/scripts/script.php?script_id=1730 tAssert plugin],
+  * Tom Link's [http://www.vim.org/scripts/script.php?script_id=1730 tAssert plugin], and [https://github.com/tomtom/spec_vim spec_vim plugin],
   * Staale Flock's [http://www.vim.org/scripts/script.php?script_id=1125 vimUnit plugin],
-  * Meikel Brandmeyer's [http://www.vim.org/scripts/script.php?script_id=2213 vimTAP plugin].
+  * Meikel Brandmeyer's [http://www.vim.org/scripts/script.php?script_id=2213 vimTAP plugin],
+  * Ben Fritz's [http://code.google.com/p/vim-2html-test/ vim-2html-test] plugin,
+  * Ingo Karkat's [http://www.vim.org/scripts/script.php?script_id=2565 runVimTests plugin].
