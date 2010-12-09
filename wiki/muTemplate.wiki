@@ -224,7 +224,7 @@ VimL: silent! unlet s:times
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
-  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.1.0.vba here]
+  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.1.1.vba here]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
