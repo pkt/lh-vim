@@ -1,5 +1,5 @@
 #summary lh-cpp: LH's C&C++ ftplugins suite
-#labels Featured
+#labels Featured,lh-cpp
 
 = Features =
 
@@ -125,7 +125,7 @@ svn checkout http://lh-vim.googlecode.com/svn/cpp/trunk/ lh-cpp-read-only
 = Credits =
 
 = See also =
- * vim.wikia category C++
+ * [http://vim.wikia.com/wiki/Category:C%2B%2B C++ tips on vim.wikia]
  * c.vim
- * refactor.vim
- * omnicppcomplete
+ * refactor.vim, [lhRefactor my generic refactoring plugin]
+ * [http://www.vim.org/scripts/script.php?script_id=1520 OmniCppComplete], [https://github.com/Rip-Rip/clang_complete clang_complete]
