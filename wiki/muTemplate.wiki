@@ -31,7 +31,7 @@
   * Filetype specific snippets can be defined for the INSERT-mode (they can be inherited, e.g. C snippets can be used from C++, Java, _etc._), the list of matching snippets will be presented with a hint for each snippet ;
   * Computed VimL expressions can be inserted ;
   * VimL instructions can be executed during the expansion ;
-  * Template-files can include other template-files in a function-like manner ;
+  * Template-files can include other template-files in a function-like manner (parameters are even supported);
   * Fully integrated with my [lhBrackets placeholders-system] ;
   * Supports re-indentation (if desired) ; 
   * Works well with vim folding ;
@@ -40,8 +40,9 @@
 
   * Thanks to [http://www.vim.org/scripts/script.php?script_id=3326 Tom Link's StakeHolders] plugin, µTemplate does now have tied placeholders (modifying one named placeholder modifies other placeholders with the same name). Not installing Stakeholders will not prevent you from using µTemplate.
 
-However, it misses the following feature:
+However, it misses the following features:
   * Several snippets per template-file -- It's extremely unlikely that µtemplate will ever work this way.
+  * One key that does everything: expansion of snippets/previously typed keywords/dictionary/..., or jump to the next placeholder depending on the context.
 
 == Shipped templates ==
 µTemplate is shipped by default with the following templates:
@@ -89,7 +90,7 @@ Most of my C and C++ template-files are shipped with [lhCpp lh-cpp]. However a f
     * _header files_ first compute the relative current filename from the root of the current project, and contains a (-n overridable) file header, and adds automatically generated anti-reinclusion guards
     * _source files_ first compute the relative current filename from the root of the current project, and contains a (-n overridable) file header, and includes any matching _header file_ found (in the current directory, or any compatible directory when [http://code.google.com/p/lh-vim/source/browse/cpp/trunk/after/plugin/a.vim a.vim] is installed)
 
-  * snippets for `main`, `for`, `for (int i`, `while`, `do...while`, `switch`, `if` ; NB: [lhCpp lh-cpp] defines alternative [lhCpp#Code_snippets smart-snippets for these control-statements], and several C++-only snippets in its [http://code.google.com/p/lh-vim/source/browse/#svn/cpp/trunk/after/template/cpp subversion repository]
+  * snippets for `main`, `for`, `for (int i`, `while`, `do...while`, `switch` and `case`, `if` ; NB: [lhCpp lh-cpp] defines alternative [lhCpp#Code_snippets smart-snippets for these control-statements], and several C++-only snippets in its [http://code.google.com/p/lh-vim/source/browse/#svn/cpp/trunk/after/template/cpp subversion repository]
 
 === LaTeX ===
 
@@ -224,7 +225,7 @@ VimL: silent! unlet s:times
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
-  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.2.0.vba here (v2.2.0)]
+  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.2.1.vba here (v2.2.1)]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
