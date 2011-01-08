@@ -1,5 +1,5 @@
 #summary map-tools: LH' bracketing system
-#labels Featured
+#labels Featured,lh-Brackets
 
 == Features ==
 
@@ -96,7 +96,7 @@ As [lhVimLib lh-vim-lib], map-tools provides a few functions of its own. All the
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib]
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-map-tools-1.1.1.vba here (v1.1.1)], or at [http://www.vim.org/scripts/script.php?script_id=50 Vim.org]
+  * As a vimball: [http://lh-vim.googlecode.com/files/lh-map-tools-1.1.2.vba here (v1.1.2)], or at [http://www.vim.org/scripts/script.php?script_id=50 Vim.org]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
