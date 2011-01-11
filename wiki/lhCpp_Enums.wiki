@@ -85,4 +85,4 @@ switch (e)
         }
 }«»
 }}}
-As of today this feature requires a ctags database containing all the tags related to the enum, and an [#Enum_snippet iterable enum]. (I plan to support C++0x class-enums and to find eventually an alternative to ctags)
+As of today this feature requires a ctags database containing all the tags related to the enum, and an [#Enum_snippet iterable enum]. (I plan to support [http://en.wikipedia.org/wiki/C%2B%2B0x#Strongly_typed_enumerations C++0x class-enums] and to find eventually an alternative to ctags)
