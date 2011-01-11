@@ -1,0 +1,88 @@
+#summary One-sentence summary of this page.
+#labels lh-cpp
+
+lh-cpp provides the following feature related to enums:
+ * [#Enum_snippet generation of a scoped and iterable enumerated type]
+ * [#Enum_iteration for-snippet for the iterable enum]
+ * [#switch-case_generation automated generation of a switch-case statement from an enum]
+
+
+=== Enum snippet ===
+
+lh-cpp ships a [MuTemplate µtemplate] snippet that expands `enum` into an enum definition with the following properties:
+ * C++ scoped (no `MYENUM_VAL1`, `MYENUM_VAL2`, ...)
+ * the number of elements is automatically provided (which can be used into static assertion in order to check that an associated array of strings has the same dimension)
+ * iterable with no need to explicitly cast an `int` into the enum type.
+
+Let's say you answer `MyEnum` when requested with the enum name, the following will be inserted:
+{{{
+struct MyEnum {
+    enum type { «values», MAX__ };
+    static type next(type e_) {
+	assert(e_ < MAX__);
+	return type(e_+1);
+    }
+    static char const* to_string(type e_);
+    static type to_enum(std::string const& s_);
+};
+inline
+MyEnum::type& operator++(MyEnum::type& e_) {
+    return e_ = MyEnum::next(e_);
+}
+inline
+MyEnum::type operator++(MyEnum::type&e_, int) {
+    const MyEnum::type tmp = e_;
+    e_ = MyEnum::next(e_);
+    return tmp;
+}
+}}}
+
+=== Enum iteration === 
+
+In order to take advantage of the particular format of the [#Enum_snippet iterable enum], a [MuTemplate µtemplate] snippet is provided to iterate on all enumerated values.
+
+`for-enum` will expand into:
+{{{
+for (MyEnum::type «e» = MyEnum::type() ; «e» != MyEnum::MAX__ ; ++«e» ) {
+    «»
+}«»
+}}}
+
+=== switch-case generation ===
+
+Given en [#Enum_snippet iterable enum] variable or type name, this name and then hit `<c-x>se`. lh-cpp will fill [MuTemplate µtemplate] switch-case snippets with all possible values from the enum type.
+{{{
+struct MyEnum {
+    enum type { V1, V2, V42, MAX__ };
+...
+MyEnum::type e;
+}}}
+`e^Xse` expands into:
+{{{
+MyEnum::type e;
+...
+switch (e) 
+{
+    case MyEnum::V1:
+        {
+            «MyEnum::V1-code»;
+            break;
+        }
+    case MyEnum::V2:
+        {
+            «MyEnum::V2-code»;
+            break;
+        }
+    case MyEnum::V42:
+        {
+            «MyEnum::V42-code»;
+            break;
+        }
+    default:
+        {
+            «default-code»;
+            break;
+        }
+}«»
+}}}
+As of today feature requires a ctags database containing all the tags related to the enum, and an [#Enum_snippet iterable enum]. (I plan to support C++0x class-enums and to find eventually an alternative to ctags)
