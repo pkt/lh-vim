@@ -9,7 +9,7 @@ lh-cpp provides the following feature related to enums:
 
 === Enum snippet ===
 
-lh-cpp ships a [MuTemplate µtemplate] snippet that expands `enum` into an enum definition with the following properties:
+lh-cpp ships a [muTemplate µtemplate] snippet that expands `enum` into an enum definition with the following properties:
  * C++ scoped (no `MYENUM_VAL1`, `MYENUM_VAL2`, ...)
  * the number of elements is automatically provided (which can be used into static assertion in order to check that an associated array of strings has the same dimension)
  * iterable with no need to explicitly cast an `int` into the enum type.
@@ -39,7 +39,7 @@ MyEnum::type operator++(MyEnum::type&e_, int) {
 
 === Enum iteration === 
 
-In order to take advantage of the particular format of the [#Enum_snippet iterable enum], a [MuTemplate µtemplate] snippet is provided to iterate on all enumerated values.
+In order to take advantage of the particular format of the [#Enum_snippet iterable enum], a [muTemplate µtemplate] snippet is provided to iterate on all enumerated values.
 
 `for-enum` will expand into:
 {{{
@@ -50,7 +50,7 @@ for (MyEnum::type «e» = MyEnum::type() ; «e» != MyEnum::MAX__ ; ++«e» ) {
 
 === switch-case generation ===
 
-Given en [#Enum_snippet iterable enum] variable or type name, this name and then hit `<c-x>se`. lh-cpp will fill [MuTemplate µtemplate] switch-case snippets with all possible values from the enum type.
+Given an [#Enum_snippet iterable enum] variable or type name, this name and then hit `<c-x>se`. lh-cpp will fill [muTemplate µtemplate] switch-case snippets with all possible values from the enum type.
 {{{
 struct MyEnum {
     enum type { V1, V2, V42, MAX__ };
