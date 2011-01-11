@@ -93,11 +93,12 @@ if () {
 === Wizards and other high-level features ===
  * class: builds a class skeleton based on the selected (simplified) semantics (value copyable, stack-based non copyable, entity non-copyable, entity clonable)
  * singleton: my very own way to define singletons based on my conclusions on this anti-pattern -- you may prefer Loki's or ACE's solutions
- * `[lhCpp_Doxygen :DOX]`: analyses a function signature (parameters, return type, throw specification) and provide a default Doxygenized documentation
- * `[lhCpp_GotoImplementation :GOTOIMPL]`, `:MOVETOIMPL`: search and jump to a function definition from its declaration, provide a default one in the _ad'hoc_ implementation file if no definition is found
- * `[lhCpp_Accessors :ADDATTRIBUTE]`: old facility that helps define const-correct accessors and mutator, will be reworked.
+ * [lhCpp_Doxygen :DOX]: analyses a function signature (parameters, return type, throw specification) and provide a default Doxygenized documentation
+ * [lhCpp_GotoImplementation :GOTOIMPL], :MOVETOIMPL: search and jump to a function definition from its declaration, provide a default one in the _ad'hoc_ implementation file if no definition is found
+ * [lhCpp_Accessors :ADDATTRIBUTE]: old facility that helps define const-correct accessors and mutator, will be reworked.
  * `:CppDisplayUnmatchedFunctions`, `<c-x>u`: shows the list of functions for which there is neither a declaration, nor a definition
  * `:Override`: Ask which inherited virtual function should be overridden in the current class (feature still in its very early stages)
+ * Generation of [lhCpp_Enums enums], and of switch-case statements from enum definition.
 
 == Syntax highlighting ==
  * assign in condition (bad practice)
