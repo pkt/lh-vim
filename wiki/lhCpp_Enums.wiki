@@ -1,5 +1,5 @@
+#summary lh-cpp enum related features
 #labels lh-cpp
-#lh-cpp enum related features
 
 lh-cpp provides the following feature related to enums:
  * [#Enum_snippet generation of a scoped and iterable enumerated type]
