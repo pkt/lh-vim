@@ -3,7 +3,7 @@
 
 [lhCpp lh-cpp] provides the `:DOX` command that analyses the current function signature to build a doxygen skeleton.
 
-The ([Configuration configurable]) skeleton will have:
+The ([#Configuration configurable]) skeleton will have:
  * a brief line
  * a list of in, out, or inout @parameters
  * a @return tag, if something is returned
