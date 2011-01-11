@@ -59,8 +59,6 @@ MyEnum::type e;
 }}}
 in INSERT-mode `e^Xse` expands into:
 {{{
-MyEnum::type e;
-...
 switch (e) 
 {
     case MyEnum::V1:
