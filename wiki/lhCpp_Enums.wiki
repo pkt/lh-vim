@@ -55,11 +55,11 @@ Given an [#Enum_snippet iterable enum] variable or type name, type this name and
 struct MyEnum {
     enum type { V1, V2, V42, MAX__ };
 ...
-MyEnum::type e;
+MyEnum::type some_enum_var;
 }}}
-in INSERT-mode `e^Xse` expands into:
+in INSERT-mode `some_enum_var^Xse` expands into:
 {{{
-switch (e) 
+switch (some_enum_var) 
 {
     case MyEnum::V1:
         {
