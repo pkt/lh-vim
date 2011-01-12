@@ -1,7 +1,7 @@
 #summary lh-cpp enum related features
 #labels lh-cpp
 
-[lhCpp lh-cpp] provides the following feature related to enums:
+[lhCpp lh-cpp] provides the following features related to enums:
  * [#Enum_snippet generation of a scoped and iterable enumerated type]
  * [#Enum_iteration for-snippet for the iterable enum]
  * [#switch-case_generation automated generation of a switch-case statement from an enum]
