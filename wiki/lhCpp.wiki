@@ -7,8 +7,8 @@ lh-cpp is an heterogeneous suite of helpers for C and C++ programming.
 
 It provides the following things:
   * Smart snippets for [lhCpp#Brackets brackets pairs], [lhCpp#Code_snippets control statements]
-  * a few advanced wizards
-  * advanced features to Generate ready to fill-in function comments for Doxygen, Jump to a function implementation, Search for un-implemented or undeclared functions, _etc._
+  * a few [Wizards_and_other_high_level_features advanced wizards]
+  * [Wizards_and_other_high_level_features advanced features] to generate ready to fill-in function comments for Doxygen, Jump to a function implementation, Search for un-implemented or undeclared functions, _etc._
   * [lhCpp#Syntax_highlighting syntax highlighting] for identified counter-idioms and bad practices (catch by value, assignments in conditions, throw specifications)
   * an [lhCpp#API API] to build even more complex wizards and advanced features
 
@@ -89,16 +89,16 @@ if () {
 === Templates ===
  * stream inserters, stream extractor
  * bool operator: almost portable hack to provide a boolean operator, strongly inspired by Matthew Wilson's _Imperfect C++_.
+ * Generation of [lhCpp_Enums enums], and of switch-case statements from enum definition.
 
 === Wizards and other high-level features ===
- * class: builds a class skeleton based on the selected (simplified) semantics (value copyable, stack-based non copyable, entity non-copyable, entity clonable)
- * singleton: my very own way to define singletons based on my conclusions on this anti-pattern -- you may prefer Loki's or ACE's solutions
+ * [lhCpp_Class class]: builds a class skeleton based on the selected (simplified) semantics (value copyable, stack-based non copyable, entity non-copyable, entity clonable)
+ * [lhCpp_Singleton singleton]: my very own way to define singletons based on my conclusions on this anti-pattern -- you may prefer Loki's or ACE's solutions
  * [lhCpp_Doxygen :DOX]: analyses a function signature (parameters, return type, throw specification) and provide a default Doxygenized documentation
  * [lhCpp_GotoImplementation :GOTOIMPL], :MOVETOIMPL: search and jump to a function definition from its declaration, provide a default one in the _ad'hoc_ implementation file if no definition is found
  * [lhCpp_Accessors :ADDATTRIBUTE]: old facility that helps define const-correct accessors and mutator, will be reworked.
- * `:CppDisplayUnmatchedFunctions`, `<c-x>u`: shows the list of functions for which there is neither a declaration, nor a definition
- * `:Override`: Ask which inherited virtual function should be overridden in the current class (feature still in its very early stages)
- * Generation of [lhCpp_Enums enums], and of switch-case statements from enum definition.
+ * [lhCpp_UmatchedFunctions :CppDisplayUnmatchedFunctions], `<c-x>u`: shows the list of functions for which there is neither a declaration, nor a definition
+ * [lhCpp_Override :Override]: Ask which inherited virtual function should be overridden in the current class (feature still in its very early stages)
 
 == Syntax highlighting ==
  * assign in condition (bad practice)
