@@ -39,7 +39,7 @@ MyEnum::type operator++(MyEnum::type&e_, int) {
 
 === Enum iteration === 
 
-In order to take advantage of the particular format of the [#Enum_snippet iterable enum], a [muTemplate µtemplate] snippet is provided to iterate on all enumerated values.
+In order to take advantage of the particular format of the [#Enum_snippet iterable enum], a [muTemplate µtemplate] snippet is provided to iterate over all enumerated values.
 
 `for-enum` will expand into:
 {{{
