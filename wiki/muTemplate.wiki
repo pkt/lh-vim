@@ -26,6 +26,7 @@
     * automatically when opening a new buffer (unless deactivated from the .vimrc),
     * explicitly through menus or the command line,
     * from the INSERT-mode in a snippet-like fashion ;
+    * from the VISUAL-mode to surround the selection with a snippet ;
   * All snippets are defined in their own template-file ;
   * The template-files can be overridden by the user, or in the context of a specific project ;
   * Filetype specific snippets can be defined for the INSERT-mode (they can be inherited, e.g. C snippets can be used from C++, Java, _etc._), the list of matching snippets will be presented with a hint for each snippet ;
@@ -225,7 +226,7 @@ VimL: silent! unlet s:times
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
-  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.2.1.vba here (v2.2.1)]
+  * As a vimball: [http://lh-vim.googlecode.com/files/mu-template-2.2.1.vba here (v2.3.0)]
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
