@@ -5,25 +5,30 @@
 
 lh-refactor is a generic refactoring plugin.
 
-So far it supports the following refactorings:
+So far it supports the following refactorings (v0.2.2):
   * Extract Function,
   * Extract Variable,
   * Extract Type,
+  * Extract Getter & Extract Setter, _(it's more a generate than an extract actually)_
 and the following languages: C, C++, Java, Pascal, VimL.
 
 The list of languages supported can be extended (however some refactoring work in the plugin is required to simplify that part)
 
 The complete documentation can be browsed [http://code.google.com/p/lh-vim/source/browse/refactor/trunk/doc/refactor.txt in the subversion repository]
 
-= Visual-mode Mappings =
+= Mappings =
+=== Visual-mode Mappings ===
   * `<C-X>f` to eXtract a Function
   * `<C-X>v` to eXtract a Variable
   * `<C-X>t` to eXtract a Type
+=== Normal-mode Mappings ===
+  * `<C-X>g` to eXtract a Getter, and `<C-X>s` to eXtract a Setter
   * `<C-X>p` and `<C-X>P` to Put back the definition that as been extracted
 
 = Download =
-  * Requirements: Vim 7.1, [lhVimLib lh-vim-lib], and my [lhBrackets bracketing system].
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-refactor-0.1.0.vba here (v0.1.0)]
+  * Requirements: Vim 7.1, [lhVimLib lh-vim-lib], my [lhBrackets bracketing system], [http://lh-vim.googlecode.com/svn/lh-dev/trunk/ lh-dev]
+  * With [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager], install `lh-refactor` (this is the preferred method because of the dependencies)
+  * ~~As a vimball: [http://lh-vim.googlecode.com/files/lh-refactor-0.1.0.vba here (v0.1.0)]~~
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
@@ -31,7 +36,7 @@ svn checkout http://lh-vim.googlecode.com/svn/refactor/trunk/ lh-refactor-read-o
     }}}
 
 = See also =
-  * Klaus Horsten's ti: [http://vim.wikia.com/wiki/Vim_as_a_refactoring_tool_and_some_examples_in_C_sharp Vim as refactoring tool (with examples in C#)]
+  * Klaus Horsten's tip: [http://vim.wikia.com/wiki/Vim_as_a_refactoring_tool_and_some_examples_in_C_sharp Vim as refactoring tool (with examples in C#)]
   * [lhCpp lh-cpp] defines a few other refactoring-like functionalities: 
      * Generate accessor and mutator (`:ADDATTRIBUTE`), 
      * Generate default body given a function signature (`:GOTOIMPL`)
