@@ -26,7 +26,7 @@ The complete documentation can be browsed [http://code.google.com/p/lh-vim/sourc
   * `<C-X>p` and `<C-X>P` to Put back the definition that as been extracted
 
 = Download =
-  * Requirements: Vim 7.1, [lhVimLib lh-vim-lib], my [lhBrackets bracketing system], [http://lh-vim.googlecode.com/svn/lh-dev/trunk/ lh-dev]
+  * Requirements: Vim 7.1, [lhVimLib lh-vim-lib], my [lhBrackets bracketing system], [http://lh-vim.googlecode.com/svn/dev/trunk/ lh-dev]
   * With [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager], install `lh-refactor` (this is the preferred method because of the dependencies)
   * ~~As a vimball: [http://lh-vim.googlecode.com/files/lh-refactor-0.1.0.vba here (v0.1.0)]~~
   * Checkout from the SVN repository
