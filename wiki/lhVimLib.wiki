@@ -144,10 +144,12 @@ See [http://hermitte.free.fr/vim/general.php#expl_words_tools]
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-only
     }}}
-  * Vim Addon Manager: [http://code.google.com/p/lh-vim/source/browse/vim-lib/trunk/lh-vim-lib-addon-info.txt lh-vim-lib-addon-info.txt]
+  * Vim Addon Manager: [http://code.google.com/p/lh-vim/source/browse/vim-lib/trunk/lh-vim-lib-addon-info.txt lh-vim-lib-addon-info.txt], this is the preferred method as VAM handles dependencies.
 
 = Other VimL libraries =
   * [http://www.vim.org/scripts/script.php?script_id=197 genutils]
   * [http://www.vim.org/scripts/script.php?script_id=2332 pathogen]
   * [http://www.vim.org/scripts/script.php?script_id=1863 Tom Link's tlib]
   * [http://github.com/MarcWeber/theonevimlib/tree/master theonevimlib], initiated by Marc Weber
+  * [http://www.vim.org/scripts/script.php?script_id=3800 anwolib], by Andy Wokula
+  * [www.vim.org/scripts/script.php?script_id=3252 l9], by Takeshi NISHIDA
