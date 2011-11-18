@@ -152,4 +152,4 @@ svn checkout http://lh-vim.googlecode.com/svn/vim-lib/trunk/ lh-vim-lib-read-onl
   * [http://www.vim.org/scripts/script.php?script_id=1863 Tom Link's tlib]
   * [http://github.com/MarcWeber/theonevimlib/tree/master theonevimlib], initiated by Marc Weber
   * [http://www.vim.org/scripts/script.php?script_id=3800 anwolib], by Andy Wokula
-  * [www.vim.org/scripts/script.php?script_id=3252 l9], by Takeshi NISHIDA
+  * [http://www.vim.org/scripts/script.php?script_id=3252 l9], by Takeshi NISHIDA
