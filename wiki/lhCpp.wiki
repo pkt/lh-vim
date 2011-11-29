@@ -116,6 +116,7 @@ if () {
 
 = Download =
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhBrackets lh-map-tools] (take the 1.0.0 beta version from the subversion repository), [muTemplate mu-template]
+  * With [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager], install lh-cpp (this is the preferred method because of the [http://code.google.com/p/lh-vim/source/browse/cpp/trunk/lh-cpp-addon-info.txt dependencies]) 
   * As a vimball: [http://lh-vim.googlecode.com/files/lh-cpp-1.0.0.vba here] (not ready yet), or at [http://www.vim.org/scripts/script.php?script_id=336 Vim.org] (old version)
   * Checkout from the SVN repository
     {{{  
@@ -130,3 +131,4 @@ svn checkout http://lh-vim.googlecode.com/svn/cpp/trunk/ lh-cpp-read-only
  * c.vim
  * refactor.vim, [lhRefactor my generic refactoring plugin]
  * [http://www.vim.org/scripts/script.php?script_id=1520 OmniCppComplete], [https://github.com/Rip-Rip/clang_complete clang_complete]
+ * [https://github.com/exclipy/clang_indexer clang_indexer]
