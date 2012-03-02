@@ -1,5 +1,5 @@
+#summary lh-vim License.
 #labels alpha
-#License lh-vim license.
 
 = Scripts License =
 
