@@ -1,5 +1,7 @@
-#summary lh-vim License.
-#labels alpha
+#summary lh-vim Licenses.
+#labels Featured
+
+Copyright 2001-2012, Luc Hermitte
 
 = Scripts License =
 
@@ -9,8 +11,6 @@ See http://www.gnu.org/licenses/gpl.txt for more information.
 
 
 = License exception for generated code =
-
-Copyright 2012, Luc Hermitte
 
 Many lh-vim scripts generate code. Unless specified otherwise, the code generated is under the following licence exception.
 
@@ -36,3 +36,7 @@ You have permission to propagate output of lh-vim, even if such propagation woul
 The availability of this Exception does not imply any general presumption that third-party software is unaffected by the copyleft requirements of the license of lh-vim.
 
 Disclaimer: This lh-vim license exception is directly derived from [http://www.gnu.org/licenses/autoconf-exception.html AUTOCONF CONFIGURE SCRIPT EXCEPTION] to GPLv3 license.
+
+= License for documentation =
+
+The documentation of lh-vim scripts distributed along the scripts, and of the wiki pages here are under the Creative Commons license ([http://creativecommons.org/licenses/by-sa/3.0/ CC by SA 3.0])
