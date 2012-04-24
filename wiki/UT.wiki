@@ -97,4 +97,5 @@ svn checkout http://lh-vim.googlecode.com/svn/UT/trunk/ UT-read-only
   * Staale Flock's [http://www.vim.org/scripts/script.php?script_id=1125 vimUnit plugin],
   * Meikel Brandmeyer's [http://www.vim.org/scripts/script.php?script_id=2213 vimTAP plugin],
   * Ben Fritz's [http://code.google.com/p/vim-2html-test/ vim-2html-test] plugin,
-  * Ingo Karkat's [http://www.vim.org/scripts/script.php?script_id=2565 runVimTests plugin].
+  * Ingo Karkat's [http://www.vim.org/scripts/script.php?script_id=2565 runVimTests plugin],
+  * See also Paul Mucur article's: [http://mudge.github.com/2012/04/18/testing-vim-plugins-on-travis-ci-with-rspec-and-vimrunner.html Testing Vim Plugins on Travis CI with RSpec and Vimrunner]
