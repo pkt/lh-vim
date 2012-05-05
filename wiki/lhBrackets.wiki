@@ -53,7 +53,7 @@ It is possible to:
   * make the mappings line-wise (thanks to the `-nl` option),
   * tune how the NORMAL-mode mapping select a current _anything_ (thanks to the `-normal` option),
   * toggle the definitions of all the brackets mappings by pressing `<F9>` (`:h <Plug>ToggleBrackets`).
-  * Make the mappings with `:Brackets!`, or local to a buffer with `:Brackets`
+  * Make the mappings global with `:Brackets!`, or local to a buffer with `:Brackets`
 
 Here is an excerpt from the C&C++ brackets definitions, see the documentation for more help.
 {{{
