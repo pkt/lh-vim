@@ -18,23 +18,24 @@ It provides the following things:
 === Brackets ===
 
 The insertion of pair of brackets-like characters is eased thanks to [lhBrackets map-tool].
-|| *In mode*            || *INSERT*               || *VISUAL*                || *NORMAL* ||
-|| *keys*               || Expands into ..        || Surrounds the selection with ... ^2^ || Surrounds the current ... ||
-|| (                    || `(<cursor>)«»`     || `(<selection>)`       || word ||
-|| [                    || `[<cursor>]«»`     || ^1^                       || ^1^  ||
-|| `<localleader>[`     ||                        || `[<selection>]`       || word ||
-|| {                    || `{\n<cursor>\n}«»` || `{<selection>}`       || word ||
-|| #{                   || `{<cursor>}«»`     ||                           ||      ||
-|| `<localleader>{`     ||                        || `{\n<selection>\n}«»` || line ||
+|| *In mode*             || *INSERT*           || *VISUAL*                || *NORMAL* ||
+|| *keys*                || Expands into ..    || Surrounds the selection with ... ^2^ || Surrounds the current ... ||
+|| `(`                   || `(<cursor>)«»`     || `(<selection>)`       || word ||
+|| `[`                   || `[<cursor>]«»`     || ^1^                       || ^1^  ||
+|| `<localleader>[`      ||                    || `[<selection>]`       || word ||
+|| `{`                   || `{<cursor>}«»`^3^  || `{<selection>}`       || word ||
+|| `<localleader>{`      ||                    || `{\n<selection>\n}«»` || line ||
 || < || `<<cursor>>«»` after `#include`, or `template` on the same line || || ||
-|| " (1 double quote)   || `"<cursor>"«»`     || ^1^                       || ^1^  ||
-|| ""                   ||                        || `"<selection>"`       || word ||
-|| '                    || `'<cursor>'«»`     || ^1^                       || ^1^  ||
-|| '' (2 single quotes) ||                        || `'<selection>'`       || word ||
+|| `"` (1 double quote)  || `"<cursor>"«»`     || ^1^                       || ^1^  ||
+|| `""`                  ||                    || `"<selection>"`       || word ||
+|| `'`                   || `'<cursor>'«»`     || ^1^                       || ^1^  ||
+|| `''` (2 single quotes)||                    || `'<selection>'`       || word ||
+|| `;`                   || closes all parenthesis after the cursor -- if there is nothing else || || ||
 
 ====Notes:====
  * ^1^ Not defined to avoid hijacking default vim key bindings.
  * ^2^ The visual mode mappings do not surround the current marker/placeholder selected, but trigger the INSERT-mode mappings instead.
+ * ^3^ The exact behavior of this mapping has changed with release r719. Now, no newline is inserted by default. However, hitting `<cr>` in the middle of a pair of curly-bracket will expand into `{\n<cursor>\n}`.
  * `«»` represents a marker/placeholder, it may be expanded with other characters like `<++>` depending on your preferences.
  * There is no way (yet) to deactivate this feature from the `.vimrc`
 
@@ -129,6 +130,6 @@ svn checkout http://lh-vim.googlecode.com/svn/cpp/trunk/ lh-cpp-read-only
 = See also =
  * [http://vim.wikia.com/wiki/Category:C%2B%2B C++ tips on vim.wikia]
  * c.vim
- * refactor.vim, [lhRefactor my generic refactoring plugin]
- * [http://www.vim.org/scripts/script.php?script_id=1520 OmniCppComplete], [https://github.com/Rip-Rip/clang_complete clang_complete]
- * [https://github.com/exclipy/clang_indexer clang_indexer]
+ * *Refactoring*: refactor.vim, [lhRefactor my generic refactoring plugin]
+ * *Code Completion*: [https://github.com/Valloric/YouCompleteMe YouCompleteMe], really, check this one!, or [http://www.vim.org/scripts/script.php?script_id=1520 OmniCppComplete], or [https://github.com/Rip-Rip/clang_complete clang_complete]
+ * *Code Indexing*: [https://github.com/LucHermitte/clang_indexer clang_indexer] and [https://github.com/LucHermitte/vim-clang vim-clang]
