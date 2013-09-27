@@ -38,9 +38,9 @@ Other filters are simply added with either:
   * Any compiler-plugin installed can be used as a filter. 
   * Any program available in the path can be a filter (dmSTLfilt.pl, c++filt, ...)
   * Plus a few filters I ship with BTW:
-    * cygwin
-    * cmake, ctest
-    * make, gmake, ant
+    * compilation chains: make, ant (fix program output), app
+    * cygwin (fix cygwin pathnames into windows pathnames)
+    * cmake, ctest (fix this damn "%d>")
     * STLfilt
     * SunSWProLinkIsError
 
