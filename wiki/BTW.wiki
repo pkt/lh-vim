@@ -4,15 +4,10 @@
 = Introduction =
 
 BTW has two main purposes:
-  * [BTW_filter Simplify the on-the-fly tuning of `'compiler'` settings.]
-  * Offer a simplified interface to build, execute, test our programs.
+  * [BTW_filter To simplify the on-the-fly tuning of `'compiler'` settings.]
+  * [BTW_make_run To offer a simplified interface to build, execute, test our programs.]
 
-And it is also able to interface with projects under CMake.
-
-== Wrap compilation and program execution ==
-
-== Projects under CMake ==
-
+And it is also able to interface with [BTW_CMake projects under CMake].
 
 = Download =
 
