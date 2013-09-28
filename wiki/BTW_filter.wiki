@@ -24,26 +24,48 @@ Filters are of several kinds:
 === Use a filter ===
 
 Filters that set the compilation chain are to be used with either:
-    :BTW set _name of the filter_
-    :BTW setlocal _name of the filter_
+{{{
+:BTW set _name of the filter_
+:BTW setlocal _name of the filter_
+}}}
 
 By default, vim default `'errorformat`' and `'makeprg'` are used.
 
 Other filters are simply added with either:
-    :BTW add _name of the filter_
-    :BTW addlocal _name of the filter_
+{{{
+:BTW add _name of the filter_
+:BTW addlocal _name of the filter_
+}}}
 
 === Default filters ===
 
   * Any compiler-plugin installed can be used as a filter. 
   * Any program available in the path can be a filter (dmSTLfilt.pl, c++filt, ...)
   * Plus a few filters I ship with BTW:
-    * compilation chains: make, ant (fix program output), app
-    * cygwin (fix cygwin pathnames into windows pathnames)
-    * cmake, ctest (fix this damn "%d>")
-    * STLfilt
-    * SunSWProLinkIsError
+    * compilation chains: make, ant (fix program output), aap
+    * cygwin: fix cygwin pathnames into windows pathnames
+    * cmake, ctest: fix this damn "%d>"
+    * STLfilt: filter C++ compiler output to in order to have readable error messages (the .vim file may need to be tuned to use the right STL filter)
+    * SunSWProLinkIsError: to have SunCC link error appear as link errors.
 
 === Create a new filter ===
 
 == Some examples ==
+
+=== Simple C++ project, that may be compiled under cygwin ===
+
+In the _vimrc_local file, I write:
+{{{
+BTW add STLfilt
+if lh#system#OnDOSWindows() && lh#system#SystemDetected() == 'unix'
+    BTW add cygwin
+endif
+}}}
+
+=== C++ project, compiled with g++ through ant and cpp_task ===
+{{{
+BTW add ant
+BTW add STLfilt
+}}}
+
+=== ... ===
