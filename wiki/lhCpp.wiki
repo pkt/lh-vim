@@ -91,6 +91,7 @@ if () {
  * stream inserters, stream extractor
  * bool operator: almost portable hack to provide a boolean operator, strongly inspired by Matthew Wilson's _Imperfect C++_.
  * Generation of [lhCpp_Enums enums], and of switch-case statements from enum definition.
+ * constructors: `copy-constructor`, `default-constructor`, `destructor`, `assignment-operator` (see `:h :Constructor`) 
 
 === Wizards and other high-level features ===
  * [lhCpp_Class class]: builds a class skeleton based on the selected (simplified) semantics (value copyable, stack-based non copyable, entity non-copyable, entity clonable)
@@ -100,6 +101,7 @@ if () {
  * [lhCpp_Accessors :ADDATTRIBUTE]: old facility that helps define const-correct accessors and mutator, will be reworked.
  * [lhCpp_UmatchedFunctions :CppDisplayUnmatchedFunctions], `<c-x>u`: shows the list of functions for which there is neither a declaration, nor a definition
  * [lhCpp_Override :Override]: Ask which inherited virtual function should be overridden in the current class (feature still in its very early stages)
+ * `:Constructor` (that takes the following parameters: `init`, `default`, `copy`, `assign`), or `:ConstructorInit`, `:ConstructorDefault`, `:ConstructorCopy`, `AssignmentOperator`. They'll analyse the list of know attributes (from a ctags database) to generate the related construction functions.
 
 == Syntax highlighting ==
  * assign in condition (bad practice)
