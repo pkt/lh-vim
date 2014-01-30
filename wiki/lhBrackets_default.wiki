@@ -1,0 +1,25 @@
+#summary lh-brackets Default brackets mappings
+#labels lh-brackets,lh-cpp
+
+=== Brackets mappings ===
+
+|| *In mode*             || *INSERT*           || *VISUAL*                             || *NORMAL* ||
+|| *keys*                || Expands into ..    || Surrounds the selection with ... ^2^ || Surrounds the current ... ||
+|| `(`                   || `(<cursor>)«»`     || `(<selection>)`                      || word ||
+|| `[`                   || `[<cursor>]«»`     || ^1^                                  || ^1^  ||
+|| `<leader>[`           ||                    || `[<selection>]`                      || word ||
+|| `{`                   || `{<cursor>}«»`^3^  || `{<selection>}`                      || word ||
+|| `<leader>{`           ||                    || `{\n<selection>\n}«»`                || line ||
+|| `"` (1 double quote)  || `"<cursor>"«»`     || ^1^                                  || ^1^  ||
+|| `""`                  ||                    || `"<selection>"`                      || word ||
+|| `'`                   || `'<cursor>'«»`^4^  || ^1^                                  || ^1^  ||
+|| `''` (2 single quotes)||                    || `'<selection>'`                      || word ||
+|| `<leader><`           ||                    || `<<selection>>`                      || word ||
+
+====Notes:====
+ * ^1^ Not defined to avoid hijacking default vim key bindings.
+ * ^2^ The visual mode mappings do not surround the current marker/placeholder selected, but trigger the INSERT-mode mappings instead.
+ * ^3^ The exact behavior of this mapping has changed with release r719. Now, no newline is inserted by default. However, hitting `<cr>` in the middle of a pair of curly-bracket will expand into `{\n<cursor>\n}`.
+ * ^4^ This mapping is neutralized for text filetypes -- the list of text-filetypes is defined in [http://code.google.com/p/lh-vim/source/browse/vim-lib/trunk/autoload/lh/ft.vim#49 `lh#ft#is_text()`]
+ * `«»` represents a marker/placeholder, it may be expanded with other characters like `<++>` depending on your preferences.
+ * These mappings can be disabled from the `.vimrc` by setting `g:cb_no_default_brackets` to 1 (default: 0)
