@@ -40,8 +40,10 @@ Jumping to the next/previous placeholder:
 This subsystem provides a command that helps define INSERT-, NORMAL-, and VISUAL-mode mappings to insert any pairs of brackets-like characters.
 
   * The INSERT-mode mappings will 
-    * insert the pair of brackets-like characters when the opening one is triggered, add a placeholder after the closing character, and move the cursor between the two characters;
+    * insert the pair of brackets-like characters when the opening one is triggered, add a placeholder after the closing character, and move the cursor between the two bracket characters;
     * insert the closing character when pressed, or move after it if it is the next character after the cursor ;
+    * delete the current pair of empty brackets when `<BS>` is hit from within the brackets (following placeholders will also be deleted) (this can be disabled by setting `[gb]:cb_delete_empty_brackets` to 0)
+    * insert an extra newline when `<CR>` is hit within an empty pair of curly-brackets {} (this can be disabled by setting `[gb]:cb_newline_within_empty_brackets` to 0)
   * The VISUAL-mode mapping will surround the current selection with the pair of bracket-like characters ;
   * The NORMAL-mode mapping will select the current word (or the current line depending on the use of the newline (`-nl`) option), and then surround this selection with the pair of bracket-like characters.
 
@@ -52,8 +54,10 @@ It is possible to:
   * define the mappings only in some modes (thanks to the options `-insert`, `-visual`, and also `-normal`)
   * make the mappings line-wise (thanks to the `-nl` option),
   * tune how the NORMAL-mode mapping select a current _anything_ (thanks to the `-normal` option),
-  * toggle the definitions of all the brackets mappings by pressing `<F9>` (`:h <Plug>ToggleBrackets`).
-  * Make the mappings global with `:Brackets!`, or local to a buffer with `:Brackets`
+  * toggle the definitions of all the brackets mappings by pressing `<F9>` (`:h <Plug>ToggleBrackets`) ;
+  * make the mappings global with `:Brackets!`, or local to a buffer with `:Brackets`. ;
+  * neutralize the mapping with `-but` option ; typically to neutralize the insertion of the brackets-pair for specified filetypes, or for more complex contexts.
+
 
 Here is an excerpt from the C&C++ brackets definitions, see the documentation for more help.
 {{{
@@ -77,6 +81,8 @@ let b:cb_jump_on_close = 1
 
 *Note:* This feature has been completely rewritten for the version 1.0.0 of map-tools. The old way of tuning the brackets insertion is no longer available.
 
+By default, the [lhBrackets_default mappings are active for most filetypes].
+
 ==== Brackets replacement ====
 
 map-tools provides mappings (originally from auctex.vim) to replace a pair of bracket-characters by another pair of bracket-characters. See `:h brackets_manipulations` for more information.
@@ -96,13 +102,14 @@ As [lhVimLib lh-vim-lib], map-tools provides a few functions of its own. All the
 
 == Download ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib]
-  * As a vimball: [http://lh-vim.googlecode.com/files/lh-map-tools-1.1.2.vba here (v1.1.2)], or at [http://www.vim.org/scripts/script.php?script_id=50 Vim.org]
+  * With [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager], install lh-brackets (this is the preferred method because of the [http://code.google.com/p/lh-vim/source/browse/map-tools/trunk/brackets-addon-info.txt dependencies])
+  * ~~As a vimball: [http://lh-vim.googlecode.com/files/lh-map-tools-1.1.2.vba here (v1.1.2)], or at [http://www.vim.org/scripts/script.php?script_id=50 Vim.org]~~
   * Checkout from the SVN repository
     {{{  
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/map-tools/trunk/ map-tools-read-only
     }}}
-  * Vim Addon Manager: [http://code.google.com/p/lh-vim/source/browse/map-tools/trunk/brackets-addon-info.txt brackets-addon-info.txt]
+
 
 == Credits ==
   * This bracketing system is actually a variation on [http://mywebpage.netscape.com/bbenjif/vim/Riehm/doc/ Stephen Riehm's original bracketing system] ;
