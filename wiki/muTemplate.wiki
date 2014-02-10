@@ -114,16 +114,37 @@ A few examples are better than a long speech, check the [http://code.google.com/
 
 Note: all the default template-files shipped with mu-template can be browsed from the [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/after/template/ subversion repository]
 
-=== C-`for` snippet ===
+=== C-`if` snippet ===
 {{{
-VimL: let s:value_start  = '¡'
-VimL: let s:value_end    = '¡'
-VimL: let s:reindent     = 1 
-VimL: let s:marker_open  = '<+'
+VimL:"{if} Template-File, Luc Hermitte
+VimL:" hint: if (cond) { action }
+VimL: let s:value_start = '¡'
+VimL: let s:value_end = '¡'
+VimL: let s:reindent = 1
+VimL: let s:marker_open = '<+'
 VimL: let s:marker_close = '+>'
-for¡C_nl_before_bracket()¡(<+init+>;<+cond+>;<+iteration+>)¡C_nl_before_curlyB()¡{
-    <+code+>
+if¡C_nl_before_bracket()¡(¡substitute(s:Surround(2, '<+cond+>'), '^\_s*\|\_s*$', '', 'g')¡)¡C_nl_before_curlyB()¡{
+¡s:Surround(1, '<+code+>')¡
 }<++>
+}}}
+
+=== C-`case` snippet ===
+{{{
+VimL:" {case:} File Template, Luc Hermitte, 05th Jan 2011
+VimL:" hint: case {tag: ...; break;}
+VimL: let s:value_start = '¡'
+VimL: let s:value_start = '¡'
+VimL: let s:value_end = s:value_start
+VimL: let s:marker_open = '<+'
+VimL: let s:marker_close = '+>'
+VimL:"" echomsg "case -> " .(empty(s:Args()) ? 'empty' : string(s:Args()))
+VimL: let s:case = empty(s:Args()) ? Marker_Txt('case') : (s:Args()[0])
+VimL: let s:_with_block2 = len(s:Args()) <= 1 ? INPUT("Insert a block for the case (0/1) ?") : (s:Args()[1])
+case <+s:case+>:
+<+s:_with_block2?'{':''+>
+<+¡substitute(s:case, Marker_Txt('\(.\{-}\)'), '\1', '')¡-code+>;
+break;
+<+s:_with_block2?'}':''+>
 }}}
 
 === Interactive template-file: C++ Class Template ===
