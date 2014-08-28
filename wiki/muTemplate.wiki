@@ -9,7 +9,6 @@
   * [muTemplate#Shipped_templates Shipped templates]
     * [muTemplate#Vim Vim]
     * [muTemplate#C_&_C++ C & C++]
-    * [muTemplate#CMake CMake]
     * [muTemplate#LaTeX LaTeX]
     * [muTemplate#XSLT XSLT]
     * [muTemplate#Licenses Licenses]
