@@ -9,8 +9,10 @@
   * [muTemplate#Shipped_templates Shipped templates]
     * [muTemplate#Vim Vim]
     * [muTemplate#C_&_C++ C & C++]
+    * [muTemplate#CMake CMake]
     * [muTemplate#LaTeX LaTeX]
     * [muTemplate#XSLT XSLT]
+    * [muTemplate#Licenses Licenses]
     * [muTemplate#Other_filetypes Other filetypes]
   * [muTemplate#Examples Examples]
     * [muTemplate#C-_if_snippet C-`if` snippet]
@@ -104,9 +106,31 @@ Four snippets that are more a proof-of-concept than real snippets for intensive 
 
 Several snippets are provided for `attribute`, `for-each`, `if`, `otherwise`, `template match`, `template name`, `value-of`, and `when`
 
+=== Licenses === 
+
+µTemplate provides a way to include automatically a license text into a file. 
+
+This can be done manually with a `:MuTemplate license/commented`. Not only the author name, and the current year will be inserted automatically, but also the license text will be inserted as a comment (in the syntax of the current filetype).  
+
+This can also be done automatically. For instance, if for your C project you want a BSD-2 clause license, your `$PROJECT_ROOT/templates/c/internals/c-file-header.template` could look like:
+
+{{{
+VimL: call s:Include('commented', 'license', 'boost-short')
+/**@file	<+s:filename+>
+ * @author	¡substitute(Author(0),'\r"','\r *','g')¡
+ * @version	<+version+>
+ * @date        <+date+>
+ */
+}}}
+
+Moreover, when a new `COPYING` file is created with vim, the user will be asked which license he wants.
+
+N.B.: Not all existing licenses are available, don't hesitate to add your own text into `after/template/license/text/` or to send it to me.
+
+
 === Other filetypes ===
 
-Extremely simple template-files are provided for new cmake, perl, html, tcl, and for template-files files. 
+Extremely simple template-files are provided for new cmake, perl, html, tcl, markdown, docbook, and for template-files files. 
 
 
 == Examples == 
@@ -254,7 +278,7 @@ VimL: silent! unlet s:times
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-read-only
     }}}
-  * Vim Addon Manager, install [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/mu-template-addon-info.txt mu-template@lh]. This is the preferred method because of the various dependencies. N.B.: installing [lhCpp lh-cpp] or [lhRefactor lh-refactor] with VAM will also install µtemplate.
+  * Vim Addon Manager, NeoBundle (and other plugin managers depending on vim-pi) install [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/mu-template-addon-info.txt mu-template@lh]. This is the preferred method because of the various dependencies. N.B.: installing [lhCpp lh-cpp] or [lhRefactor lh-refactor] with VAM will also install µtemplate.
 
 == Credits ==
   * Gergely Kontra is the author of the first version of µTemplate
@@ -262,4 +286,4 @@ svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-rea
   * Robert Kelly IV, Zdenek Sekera for their insight and the feedback they provided me (LH).
 
 == See also ==
-There are many other template-files loaders for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia]
+There are many other template-files loaders for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia], on the [http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html comparative matrix] in Marc Weber's vim wiki.
