@@ -295,4 +295,4 @@ svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-rea
   * Robert Kelly IV, Zdenek Sekera for their insight and the feedback they provided me (LH).
 
 == See also ==
-There are many other template-files loaders for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia], on the [http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html comparative matrix] in Marc Weber's vim wiki.
+There are many other template-files loaders for Vim, see the [http://vim.wikia.com/wiki/Category:Automated_Text_Insertion non exhaustive list of vim.wikia], or the [http://vim-wiki.mawercer.de/wiki/topic/text-snippets-skeletons-templates.html comparative matrix] in Marc Weber's vim wiki.
