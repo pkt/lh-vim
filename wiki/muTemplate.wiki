@@ -287,7 +287,8 @@ VimL: silent! unlet s:times
 # Non-members may check out a read-only working copy anonymously over HTTP.
 svn checkout http://lh-vim.googlecode.com/svn/mu-template/trunk/ mu-template-read-only
     }}}
-  * Vim Addon Manager, NeoBundle (and other plugin managers depending on vim-pi) install [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/mu-template-addon-info.txt mu-template@lh]. This is the preferred method because of the various dependencies. N.B.: installing [lhCpp lh-cpp] or [lhRefactor lh-refactor] with VAM will also install µtemplate.
+  * With [https://github.com/MarcWeber/vim-addon-manager Vim Addon Manager] (and other plugin managers depending on [https://bitbucket.org/vimcommunity/vim-pi vim-pi] like [https://github.com/Shougo/neobundle.vim NeoBundle]) install [http://code.google.com/p/lh-vim/source/browse/mu-template/trunk/mu-template-addon-info.txt mu-template@lh]. This is the preferred method because of the various dependencies. 
+  * N.B.: installing [lhCpp lh-cpp] or [lhRefactor lh-refactor] with VAM will also install µtemplate.
 
 == Credits ==
   * Gergely Kontra is the author of the first version of µTemplate
