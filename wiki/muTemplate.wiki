@@ -18,7 +18,7 @@
     * [muTemplate#C-_case_snippet C-`case` snippet]
     * [muTemplate#Interactive_template-file:_C++_Class_Template Interactive template-file: C++ Class Template]
     * [muTemplate#Completely_useless_recursive_example Completely useless recursive example]
-  * [muTemplate#Download Download]
+  * [muTemplate#Installation Installation]
   * [muTemplate#Credits Credits]
   * [muTemplate#See_also See also]
 
@@ -39,7 +39,7 @@
   * Supports re-indentation (if desired) ; 
   * Works well with vim folding ;
   * I18n friendly ;
-  * The expansion happens after any _[http://code.google.com/p/lh-vim/source/browse/misc/trunk/plugin/local_vimrc.vim local vimrcs]_ present are loaded -- in order to set project-specific variables before the expansion is done.
+  * The expansion happens after any _[https://github.com/LucHermitte/local_vimrc local vimrcs]_ present are loaded -- in order to set project-specific variables before the expansion is done.
 
   * Thanks to [http://www.vim.org/scripts/script.php?script_id=3326 Tom Link's StakeHolders] plugin, µTemplate does now have tied placeholders (modifying one named placeholder modifies other placeholders with the same name). Not installing Stakeholders will not prevent you from using µTemplate.
 
@@ -279,7 +279,7 @@ VimL: silent! unlet s:times
 }}}
 
 
-== Download ==
+== Installation ==
   * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [searchInRuntime], and my [lhBrackets bracketing-system]
   * As a vimball: ~~[http://lh-vim.googlecode.com/files/mu-template-2.3.0.vba here (v2.3.0)]~~
   * Checkout from the SVN repository
