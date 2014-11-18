@@ -23,7 +23,7 @@ svn checkout http://lh-vim.googlecode.com/svn/BTW/trunk/ BTW-read-only
 
 == Dependencies == 
 
-You will most certainly require a project management plugin. I can offer you [local_vimrc], there are plenty alternatives (with similar names), or even the good old project.vim plugin.
+You will most certainly require a project management plugin. I can offer you [https://github.com/LucHermitte/local_vimrc local_vimrc], there are plenty alternatives (with similar names), or even the good old project.vim plugin.
 
 == Examples of configuration of BTW ==
 
