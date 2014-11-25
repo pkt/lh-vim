@@ -86,19 +86,22 @@ if () {
  * `firend` is replaced by `friend` ;
  * `<m-s>` inserts `std::`, `<m-b>` inserts `boost:` ;
  * `?:` expands into `<cursor>? «» : «»;` ;
+ * `<C-X>i` will look for the symbol under the cursor (or selected) in the current ctag database and it will try to automatically include the header file where the symbol is defined.
 
 === Templates ===
- * stream inserters, stream extractor
+ * All templates, snippets and wizards respect the naming convention set for the current project -- see my [https://code.google.com/p/lh-vim/source/browse/mu-template/trunk/after/template/vim/internals/vim-rc-local-cpp-style.template project style template] for an idea of what is supported and possible.
+ * stream inserters, stream extractor.
  * bool operator: almost portable hack to provide a boolean operator, strongly inspired by Matthew Wilson's _Imperfect C++_.
  * Generation of [lhCpp_Enums enums], and of switch-case statements from enum definition.
- * constructors: `copy-constructor`, `default-constructor`, `destructor`, `assignment-operator` (see `:h :Constructor`) 
+ * constructors: `copy-constructor`, `default-constructor`, `destructor`, `assignment-operator` (see `:h :Constructor`).
+ * Various standard types and functions (and a few from boost) have a snippet that'll automatically include the related header file there are are defined. NB: at this time, inclusions are not optimized as IncludeWhatYouUse would optimize them for us. You can have an idea of the snippets provided by browsing [https://code.google.com/p/lh-vim/source/browse/#svn%2Fcpp%2Ftrunk%2Fafter%2Ftemplate%2Fcpp%253Fstate%253Dclosed lh-cpp repository here].
 
 === Wizards and other high-level features ===
  * [lhCpp_Class class]: builds a class skeleton based on the selected (simplified) semantics (value copyable, stack-based non copyable, entity non-copyable, entity clonable)
  * [lhCpp_Singleton singleton]: my very own way to define singletons based on my conclusions on this anti-pattern -- you may prefer Loki's or ACE's solutions
  * [lhCpp_Doxygen :DOX]: analyses a function signature (parameters, return type, throw specification) and provide a default Doxygenized documentation
  * [lhCpp_GotoImplementation :GOTOIMPL], :MOVETOIMPL: search and jump to a function definition from its declaration, provide a default one in the _ad'hoc_ implementation file if no definition is found
- * [lhCpp_Accessors :ADDATTRIBUTE]: old facility that helps define const-correct accessors and mutator, will be reworked.
+ * [lhCpp_Accessors :ADDATTRIBUTE]: old facility that helps define const-correct accessors and mutator, will be reworked. [lhRefactor lh-refactor] provides more ergonomic mappings for this purpose.
  * [lhCpp_UmatchedFunctions :CppDisplayUnmatchedFunctions], `<c-x>u`: shows the list of functions for which there is neither a declaration, nor a definition
  * [lhCpp_Override :Override]: Ask which inherited virtual function should be overridden in the current class (feature still in its very early stages)
  * `:Constructor` (that takes the following parameters: `init`, `default`, `copy`, `assign`), or `:ConstructorInit`, `:ConstructorDefault`, `:ConstructorCopy`, `AssignmentOperator`. They'll analyse the list of know attributes (from a ctags database) to generate the related construction functions.
@@ -111,14 +114,16 @@ if () {
 
 == Miscellaneous ==
  * home like VC++: mappings that override `<home>` and `<end>` to mimic how these keys behave in VC++.
- * omap-param: defines the o-mappings `,i` and `,a` to select the current parameter (in a list of parameters.
+ * omap-param: defines the o-mappings `,i` and `,a` to select the current parameter (in a list of parameters).
  * a.vim, 
- * SiR, local_vimrc 
+ * SiR, 
+ * lh-cpp imports a [https://github.com/LucHermitte/VimFold4C C&C++ Folding plugin], which is still experimental.
+ * [lhDev lh-dev], which is required by lh-cpp, provides a few commands like `:NameConvert` that permits to change the naming style of a symbol. The possible styles are: `upper_camel_case`, `lower_camel_case`, `snake`/`underscore`, `variable`, `local`, `global`, `member`, `constant`, `static`, `param`, `getter`, `setter`)
 
 == API ==
 
 = Download =
-  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhBrackets lh-map-tools] (take the 1.0.0 beta version from the subversion repository), [muTemplate mu-template]
+  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhBrackets lh-map-tools] (take the 1.0.0 beta version from the subversion repository), [muTemplate mu-template], [lhDev lh-dev], 
   * With [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager], install lh-cpp (this is the preferred method because of the [http://code.google.com/p/lh-vim/source/browse/cpp/trunk/lh-cpp-addon-info.txt dependencies]) 
   * As a vimball: [http://lh-vim.googlecode.com/files/lh-cpp-1.0.0.vba here] (not ready yet), or at [http://www.vim.org/scripts/script.php?script_id=336 Vim.org] (old version)
   * Checkout from the SVN repository
@@ -132,6 +137,10 @@ svn checkout http://lh-vim.googlecode.com/svn/cpp/trunk/ lh-cpp-read-only
 = See also =
  * [http://vim.wikia.com/wiki/Category:C%2B%2B C++ tips on vim.wikia]
  * c.vim
+ * *Project Management*: [https://github.com/LucHermitte/local_vimrc local_vimrc]
+ * *Compilation*: [https://code.google.com/p/lh-vim/wiki/BTW BuildToolsWrappers]
+ * *Errors Highlighting*: syntastic, [https://code.google.com/p/lh-vim/source/browse/#svn%2Fcompil-hints%2Ftrunk compil-hints] (a non-dynamic syntastic-lite plugin that'll only highlight errors found after a compilation stage)
+ * *CMake Integration*: [https://github.com/LucHermitte/lh-cmake lh-cmake] + [https://github.com/LucHermitte/local_vimrc local_vimrc] + [https://code.google.com/p/lh-vim/wiki/BTW BuildToolsWrappers]
  * *Refactoring*: refactor.vim, [lhRefactor my generic refactoring plugin]
  * *Code Completion*: [https://github.com/Valloric/YouCompleteMe YouCompleteMe], really, check this one!, or [http://www.vim.org/scripts/script.php?script_id=1520 OmniCppComplete], or [https://github.com/Rip-Rip/clang_complete clang_complete]
- * *Code Indexing*: [https://github.com/LucHermitte/clang_indexer clang_indexer] and [https://github.com/LucHermitte/vim-clang vim-clang]
+ * *Code Indexing*: [https://github.com/LucHermitte/clang_indexer clang_indexer] and [https://github.com/LucHermitte/vim-clang vim-clang], lh-tags
