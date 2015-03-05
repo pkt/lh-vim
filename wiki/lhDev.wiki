@@ -1,0 +1,169 @@
+#summary lh-dev: API for coding oriented plugins
+#labels Featured,lh-dev
+
+= Introduction =
+
+lh-dev is a VimL for plugin oriented toward coding. It provides language independent functions that can be used by these plugins. The functions themselves can be specialized on a filetype basis.
+
+I'll first present options that end-user of plugins based on lh-dev may tune, then the API itself for coding plugin authors.
+
+= Commands =
+
+lh-dev defines the following commands:  
+  * `:AddStyle`, which is meant to be used to tune the [lhDev#Formatting_of_brackets_characters styling options]
+  * `:NameConvert` that converts the identifier under to cursor to one of the following naming policy (the command supports autocompletion):
+    * upper_camel_case, lower_camel_case, underscore/snake, variable,
+    * getter, setter, local, global, member, static, constant, param (the exact conversion process can be tuned thanks to the [lhDev#Naming_conventions following options]).
+
+
+= Options =
+
+== Styling options ==
+
+Snippets for [lhCpp lh-cpp] and [muTemplate mu-template], and refactorings from [lhRefactor lh-refactor] exploit the styling options offered by lh-dev.
+
+=== Naming conventions ===
+
+Naming conventions can be defined for:  
+  * variables (main name)
+  * global and local variables
+  * member and static variables
+  * (formal) parameters
+  * constants
+  * getters and setters
+
+It is done, respectively, with the [lhDev#options options]:  
+  * `(bg):{ft_}naming_strip_re` and `(bg):{ft_}naming_strip_subst`,
+  * `(bg):{ft_}naming_global_re`, `(bg):{ft_}naming_global_subst`, `(bg):{ft_}naming_local_re`, and `(bg):{ft_}naming_local_subst`, 
+  * `(bg):{ft_}naming_member_re`, `(bg):{ft_}naming_member_subst`, `(bg):{ft_}naming_static_re`, and `(bg):{ft_}naming_static_subst`,
+  * `(bg):{ft_}naming_param_re`, and `(bg):{ft_}naming_param_subst`,
+  * `(bg):{ft_}naming_constant_re`, and `(bg):{ft_}naming_constant_subst`,
+  * `(bg):{ft_}naming_get_re`, `(bg):{ft_}naming_get_subst`, `(bg):{ft_}naming_set_re`, and `(bg):{ft_}naming_set_subst`
+
+Once in the _main name_ form, the `..._re` regex options match the _main name_ while the `..._subst` replacement text is applied instead.
+
+You can find examples for these option in mu-template [http://lh-vim.googlecode.com/svn/mu-template/trunk/after/template/vim/internals/vim-rc-local-cpp-style.template template] used by [BTW BuildToolsWrapper]'s `:BTW new_project` command.
+
+=== Formatting of brackets characters ===
+
+The aim of `:AddStyle` (and of `lh#dev#style#get()` and `lh#dev#style#apply()`) is to define how things should get written in source code.
+
+For instance, some projects will want to have opening curly-brackets on new lines (see Allman indenting style), other will prefer to have the opening bracket on the same line as the function/constrol-statement/... (see K&R indenting style, Java coding style, ...)
+
+lh-dev doesn't do any replacement by itself. It is expected to used by
+snippet plugins. So far, only [muTemplate mu-template] and [lhCpp lh-cpp] exploit this feature.
+
+`:AddStyle` is meant to be used by end users -- while `lh#dev#style#get()` and `lh#dev#style#apply()` are meant to be used by plugin developpers that want to exploit end-user coding style. 
+
+
+`:AddStyle {key} [-buffer] [-ft[={ft}]] {Replacement}`
+  * `{key}` is a regex that will get replaced automatically (by plugins
+supporting this API)
+  * `{replacement}` is what will be inserted in place of `{text}`
+  * "`-buffer`" defines this association only for the current buffer. This option is meant to be used with plugins like [https://github.com/LucHermitte/local_vimrc local_vimrc].
+  * "`-ft[={ft}]`" defines this association only for the specified filetype. When `{ft}` is not specified, it applies only to the current filetype. This option is meant to be used in .vimrc, in the global zone of |filetype-plugin|s or possibily in [https://github.com/LucHermitte/local_vimrc local_vimrcs] (when combined with "`-buffer`").
+
+Examples:
+
+{{{
+" # Space before open bracket in C & al {{{2
+" A little space before all C constructs in C and child languages
+" NB: the spaces isn't put before all open brackets
+AddStyle if(     -ft=c   if\ (
+AddStyle while(  -ft=c   while\ (
+AddStyle for(    -ft=c   for\ (
+AddStyle switch( -ft=c   switch\ (
+AddStyle catch(  -ft=cpp catch\ (
+
+" Doxygen groups
+Addstyle @{  -ft=c @{
+Addstyle @}  -ft=c @}
+Addstyle \\{ -ft=c \\{
+Addstyle \\} -ft=c \\}
+
+" # Default style in C & al: Stroustrup {{{2
+AddStyle {  -ft=c \ {\n
+AddStyle }; -ft=c \n};\n
+AddStyle }  -ft=c \n}\n
+
+" # Java style {{{2
+" Force Java style in Java
+AddStyle { -ft=java \ {\n
+AddStyle } -ft=java \n}
+}}}
+
+When you wish to adopt Allman coding style, in `${project_root}/_vimrc_local.vim`  
+{{{
+   AddStyle { -b \n{\n
+   AddStyle } -b \n}
+}}}
+
+
+Local configuration (with "`-buffer`") have the priority over filetype
+specialized configuration (with "`-ft`").
+
+
+== Inherited filetypes ==
+
+`g:{ft}_inherits = 'ft1,ft2,...'`
+
+= API =
+
+This part is just a draft for the moment.
+
+== Themes ==
+
+  * style
+  * naming
+  * class
+  * type
+  * function
+  * instruction
+  * tags
+
+== Filetype polymorphism ==
+
+Most features provided by lh-dev can be specialized according to the filetype, usually of the current file.
+
+=== Options ===
+
+Options can be obtained with `lh#dev#option#get(name, filetype, default [, scopes])`
+
+This returns which ever exists first among: `b:{filetype}_{name}`, or `g:{filetype}_{name}`, or `b:{name}`, or `g:{name}`. `{default}` is returned if none exists.
+
+====Notes====
+  * Filetype inheritance is supported.
+  * The order of the scopes for the variables checked can be specified through the optional argument {scope}
+
+====How to set these variables ?====
+  * `g:{name}` is a global default option for all filetypes best set from a `.vimrc` or a plugin
+  * `g:{filetype}_{name}` is a global default option for a specific filetype (and its sub-filetypes) best set from a `.vimrc` or a plugin
+  * `b:{name}` is a local option for all filetypes, best set for a [https://github.com/LucHermitte/local_vimrc vimrc_local], or possibly a ftplugin.
+  * `b:{filetype}_{name}` is a local option for a specific filetype (and its sub-filetypes), best set for a [https://github.com/LucHermitte/local_vimrc vimrc_local], or possibly a ftplugin.
+
+
+=== Functions ===
+
+Entry point: `lh#dev#{theme}#function()`
+
+Default function: `lh#dev#{theme}#_function()`
+
+Specialized function: `lh#dev#{filetype}#{theme}#_function()`
+
+`lh#dev#option#call(name, filetype [, parameters])`
+
+=== Filetype inheritance ===
+`lh#dev#option#inherited_filetypes(filetypes)`
+
+== Contributing ==
+=== Language Analysis ===
+
+= Download =
+  * Requirements: Vim 7.+, [lhVimLib lh-vim-lib], [lhTags lh-tags]
+  * Install with [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager] any plugin that requires lh-dev should be enough.
+  * With [https://github.com/MarcWeber/vim-addon-manager vim-addon-manager], install lh-dev (this is the preferred method because of the [http://code.google.com/p/lh-vim/source/browse/dev/trunk/lh-dev-addon-info.txt dependencies]). 
+  * Checkout from the SVN repository
+    {{{  
+# Non-members may check out a read-only working copy anonymously over HTTP.
+svn checkout http://lh-vim.googlecode.com/svn/dev/trunk/ lh-dev-read-only
+    }}}
