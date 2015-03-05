@@ -32,7 +32,7 @@ Naming conventions can be defined for:
   * constants
   * getters and setters
 
-It is done, respectively, with the [lhDev#options options]:  
+It is done, respectively, with the [lhDev#Options options]:  
   * `(bg):{ft_}naming_strip_re` and `(bg):{ft_}naming_strip_subst`,
   * `(bg):{ft_}naming_global_re`, `(bg):{ft_}naming_global_subst`, `(bg):{ft_}naming_local_re`, and `(bg):{ft_}naming_local_subst`, 
   * `(bg):{ft_}naming_member_re`, `(bg):{ft_}naming_member_subst`, `(bg):{ft_}naming_static_re`, and `(bg):{ft_}naming_static_subst`,
