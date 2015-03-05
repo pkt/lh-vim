@@ -57,8 +57,7 @@ snippet plugins. So far, only [muTemplate mu-template] and [lhCpp lh-cpp] exploi
 
 
 `:AddStyle {key} [-buffer] [-ft[={ft}]] {Replacement}`
-  * `{key}` is a regex that will get replaced automatically (by plugins
-supporting this API)
+  * `{key}` is a regex that will get replaced automatically (by plugins supporting this API)
   * `{replacement}` is what will be inserted in place of `{text}`
   * "`-buffer`" defines this association only for the current buffer. This option is meant to be used with plugins like [https://github.com/LucHermitte/local_vimrc local_vimrc].
   * "`-ft[={ft}]`" defines this association only for the specified filetype. When `{ft}` is not specified, it applies only to the current filetype. This option is meant to be used in .vimrc, in the global zone of |filetype-plugin|s or possibily in [https://github.com/LucHermitte/local_vimrc local_vimrcs] (when combined with "`-buffer`").
