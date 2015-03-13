@@ -76,11 +76,22 @@ AddStyle for(    -ft=c   for\ (
 AddStyle switch( -ft=c   switch\ (
 AddStyle catch(  -ft=cpp catch\ (
 
-" Doxygen groups
-Addstyle @{  -ft=c @{
-Addstyle @}  -ft=c @}
-Addstyle \\{ -ft=c \\{
-Addstyle \\} -ft=c \\}
+" # Ignore style in comments after curly brackets {{{2
+AddStyle {\ *// -ft=c \ &
+AddStyle }\ *// -ft=c &
+
+" # Multiple C++ namespaces on same line {{{2
+AddStyle {\ *namespace -ft=cpp \ &
+AddStyle }\ *} -ft=cpp &
+
+" # Doxygen {{{2
+" Doxygen Groups
+AddStyle @{  -ft=c @{
+AddStyle @}  -ft=c @}
+
+" Doxygen Formulas
+AddStyle \\f{ -ft=c \\\\f{
+AddStyle \\f} -ft=c \\\\f}
 
 " # Default style in C & al: Stroustrup {{{2
 AddStyle {  -ft=c \ {\n
