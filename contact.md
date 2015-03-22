@@ -1,0 +1,6 @@
+In order to contact me, you can:
+  * Add an issue here if this concerns an enhancement/feature suggestion, a bug, a misspelling, _etc._
+  * Send an email to [lh-vim-users](http://groups.google.com/group/lh-vim-users) group,
+  * or directly send me an email to hermitte{at}free{dot}fr
+> > However, sometimes my email server has an odd behaviour, and all my outgoing emails are likely to be filtered out by spamcops-like bots
+  * Send me an email to luc{dot}hermitte{at}gmail{dot}com, if you suspect your email was lost somewhere -- I consult my gmail mailbox something like twice a month ^^'

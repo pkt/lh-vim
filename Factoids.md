@@ -1,0 +1,2 @@
+&lt;wiki:gadget url="http://www.ohloh.net/p/21020/widgets/project\_basic\_stats.xml" height="220"  border="1" /&gt;
+&lt;wiki:gadget url="http://www.ohloh.net/p/21020/widgets/project\_factoids.xml" border="0" width="500" /&gt;
